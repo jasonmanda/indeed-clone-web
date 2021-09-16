@@ -1,0 +1,3 @@
+liste des soumissions[offre créateur detail]
+
+//ng serve --source-map=false --aot --prod --live-reload=false

@@ -1,0 +1,85 @@
+<main>
+  <div class="container-fluid" [formGroup]="form_step_one">
+
+    <div class="row">
+     
+      <div class="col-md-12 text-left mb-1">
+        <div class="row">
+            <div class="col-md-6">
+
+
+                <app-shared-search-home [model]="'model_2'" [form_step_one]="form_step_one" [where]="where" [what]="what"
+                    [filteredOptions]="filteredOptions" [filteredOptions1]="filteredOptions1" class="col-md-12">
+                </app-shared-search-home>
+
+            </div>
+   
+        </div>
+    </div>
+ 
+
+
+ 
+ 
+    <div class="col-md-6 mx-auto mb-1 more" *ngIf="current_user_offre!=null && current_user_offre!=undefined"> 
+      <mat-card>
+        <mat-card-title>
+          <div class="row mb-1">
+            <label class="text-left col-6 pl-0">{{current_user_offre.poste}}</label>
+        </div>
+        <div class="row mb-1" *ngIf="current_user_offre.entreprise!=null&&current_user_offre.entreprise!=undefined">
+          <span>{{current_user_offre.entreprise.nom}}</span><span> - </span><span>{{current_user_offre.localite.nom_ville}}</span>
+      </div>
+      <div class="row mb-1" *ngIf="current_user_offre.personne!=null&&current_user_offre.personne!=undefined">
+        <span>{{current_user_offre.personne.nom_personne+' '+current_user_offre.personne.prenom_personne}}</span><span> - </span><span>{{current_user_offre.localite.nom_ville}}</span>
+    </div>
+ 
+          <div class="row p-2" *ngIf="!is_ent"> 
+            
+            <div class="col-md-12 p-0 mt-2 mb-2">
+              <app-shared-spinner [progress_upload_real]="progress_upload_real"></app-shared-spinner>
+            </div>
+            <button (click)="post()" class="col-md-5 mr-2 mt-1" mat-button mat-raised-button color="primary" [disabled]="current_user_offre.is_posted">Postuler</button>
+            <button (click)="fav()" mat-icon-button mat-button color="primary" [disabled]="current_user_offre.is_favorite"><mat-icon >{{current_user_offre.icon_favorite==null||current_user_offre.icon_favorite==undefined?'favorite_border':current_user_offre.icon_favorite}}</mat-icon></button>
+          </div>
+        </mat-card-title>
+        
+        <mat-card-content>
+    
+    <app-offre-step-finish [opt]="null" [is_recap]="false" [cab_recrutement]="current_user_offre.cab_recrutement" 
+    [nom_ent]="current_user_offre.nom_ent" [poste]="current_user_offre.poste" [localite]="current_user_offre.localite.nom_ville" 
+    [taille]="current_user_offre.taille" [type_emp]="current_user_offre.type_emp"
+    [type_contrat]="current_user_offre.type_contrat" [salaire]="current_user_offre.salaire" 
+    [salaire_type]="current_user_offre.salaire_type" [salaire_min]="current_user_offre.salaire_min" [salaire_max]="current_user_offre.salaire_max" [salaire_model]="current_user_offre.salaire_model"
+    [no_salaire]="current_user_offre.no_salaire" [avantages]="toArrayPipe.transform(current_user_offre.avantages)" [cv_require]="current_user_offre.cv_require" [test_compet]="current_user_offre.test_compet" [description]="current_user_offre.description" [date_limit]="current_user_offre.date_limit"
+    [date_debut]="current_user_offre.date_debut" [date_immediat]="current_user_offre.date_immediat"></app-offre-step-finish>
+        
+ 
+        </mat-card-content>
+        <mat-card-footer></mat-card-footer>
+      </mat-card>
+
+    </div>
+
+  </div>
+</div>
+  <!-- 
+
+  <mat-card class="alternate-theme">
+    Alternate Theme:
+    <button mat-raised-button color="primary">
+      Primary
+    </button>
+    <button mat-raised-button color="accent">
+      Accent
+    </button>
+    <button mat-raised-button color="warn">
+      Warning
+    </button>
+  </mat-card> -->
+</main>
+
+<footer class="docs-footer mt-1">
+  <router-outlet name="footer"></router-outlet>
+  <!-- <app-footer-bar></app-footer-bar> -->
+</footer>

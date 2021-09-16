@@ -1,0 +1,290 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="form_step_one">
+         
+                  
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <span class="resume-virtual-header">Information personnelle</span>
+                    </div>
+
+                    <div class="form-row form-group">
+                        
+                        <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                            <mat-label>Nom</mat-label>
+                            <input type="text" matInput id="nom" name="nom" formControlName="nom">
+                          
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                            <mat-label>Prénom</mat-label>
+                        <input type="text" matInput id="prenom" name="prenom" formControlName="prenom">
+                        
+                    </mat-form-field>
+
+                </div>
+
+                </fieldset>
+
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <span class="resume-virtual-header">Localiser vous</span>
+                    </div>
+
+                    <div class="form-row form-group">
+                        
+                        <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                            <mat-label>Ville de résidence</mat-label>
+                            <input type="text"  matInput
+                            name="where" formControlName="where"  [matAutocomplete]="bindWhereAutoComplete">
+                            <mat-autocomplete #bindWhereAutoComplete="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
+                              {{option}}
+                            </mat-option>
+                            </mat-autocomplete>
+                            <mat-icon matSuffix>location_on</mat-icon>
+                    
+                        </mat-form-field>
+
+                        
+
+                </div>
+
+                </fieldset>
+
+
+
+
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <span class="resume-virtual-header">A propos</span>
+                    </div>
+
+                    <div class="form-row form-group">
+                        <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                            <mat-label>A propos</mat-label>
+                            <textarea rows="5" matInput id="a_propos" name="a_propos" formControlName="a_propos">
+                                </textarea>
+                         
+                        </mat-form-field>
+
+                    </div>
+
+                </fieldset>
+
+
+
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-10 text-left">
+                            <span class="resume-virtual-header">Expérience professionnelle</span>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addExpPro()" matTooltip="Ajout une expérience professionnelle">add</mat-icon>
+                        </div>
+                    </div>
+
+
+                <app-shared-experience-professionnelle  
+                [form_step_one]="form_step_one"
+                [listExpProfessionnelleGroup]="listExpProfessionnelleGroup"
+                [maxDate]="maxDate"
+                [filteredOptions]="filteredOptions"
+                (bindRemoveExpPo)="removeExpPo($event)"
+                ></app-shared-experience-professionnelle>
+
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-12 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addExpPro()" matTooltip="Ajout une expérience professionnelle">add</mat-icon>
+                        </div>
+                        </div>
+                </fieldset>
+
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-10 text-left">
+                            <span class="resume-virtual-header">Formation</span>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addFormation()" matTooltip="Ajout une formation">add</mat-icon>
+                        </div>
+                    </div>
+                
+                
+                <app-shared-formation  
+                [form_step_one]="form_step_one"
+                [listFormationGroup]="listFormationGroup"
+                [maxDate]="maxDate"
+                [filteredOptions]="filteredOptions"
+                (bindRemoveFormation)="removeFormation($event)"
+                (bindReadFormationDocument)="readFormationDocument($event)"
+                (bindRemoveFormationDocument)="removeFormationDocument($event)"
+                (bindImportFormationFile)="importFormationFile($event)"
+                
+                ></app-shared-formation>
+
+
+                
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-12 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addFormation()" matTooltip="Ajout une formation">add</mat-icon>
+                        </div>
+                        </div>
+                </fieldset>
+
+
+
+
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-10 text-left">
+                            <span class="resume-virtual-header">Certificat</span>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addCertificat()" matTooltip="Ajout un certificat">add</mat-icon>
+                        </div>
+                    </div>
+                
+                
+                    <app-shared-certificat  
+                [form_step_one]="form_step_one"
+                [listCertificatGroup]="listCertificatGroup"
+                [maxDate]="maxDate"
+                (bindRemoveCertificat)="removeCertificat($event)"
+                (bindReadCertificatDocument)="readCertificatDocument($event)"
+                (bindRemoveCertificatDocument)="removeCertificatDocument($event)"
+                (bindImportCertificatFile)="importCertificatFile($event)"
+                
+                ></app-shared-certificat>
+
+
+                
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-12 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addCertificat()" matTooltip="Ajout un certificat">add</mat-icon>
+                        </div>
+                        </div>
+                </fieldset>
+
+
+<fieldset class="mb-2">
+    <div class="form-group form-row justify-content-center">
+        <div class="col-md-12 text-left">
+            <span class="resume-virtual-header">Contact</span>
+        </div>
+       
+    </div>
+
+    <app-shared-contact
+    [form_step_one]="form_step_one"
+    [numero]="numero"
+    [mail]="mail"
+    [website]="website"
+    [facebook]="facebook" 
+    [linkedin]="linkedin"
+    [twitter]="twitter"
+  ></app-shared-contact>
+
+    
+</fieldset>
+
+
+
+
+
+
+
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-10 text-left">
+                            <span class="resume-virtual-header">Compétence</span>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addCompetence()" matTooltip="Ajout une compétence">add</mat-icon>
+                        </div>
+                    </div>
+                    
+                    
+                    <app-shared-competence  
+                    [form_step_one]="form_step_one"
+                    [listCompetenceGroup]="listCompetenceGroup"
+                    (bindRemoveCompetence)="removeCompetence($event)"
+                    ></app-shared-competence>
+                    
+                    
+                    
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-12 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addCompetence()" matTooltip="Ajout une compétence">add</mat-icon>
+                        </div>
+                        </div>
+                    </fieldset>
+
+
+
+
+
+
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-10 text-left">
+                            <span class="resume-virtual-header">Langue</span>
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addLangue()" matTooltip="Ajout une langue">add</mat-icon>
+                        </div>
+                    </div>
+                    
+                    
+                    <app-shared-langue  
+                    [form_step_one]="form_step_one"
+                    [listLangueGroup]="listLangueGroup"
+                    (bindRemoveLangue)="removeLangue($event)"
+                    ></app-shared-langue>
+                    
+                    
+                    
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-12 text-right">
+                            <mat-icon style="cursor: pointer;" (click)="addLangue()" matTooltip="Ajout une langue">add</mat-icon>
+                        </div>
+                        </div>
+                    </fieldset>
+
+
+                    
+                <fieldset class="mb-2">
+                    <div class="form-group form-row justify-content-center">
+                        <div class="col-md-12 text-left">
+                            <span class="resume-virtual-header">Autres</span>
+                        </div>
+                    </div>
+
+                            <mat-form-field appearance="outline" class="example-full-width col-md-6">
+                                <mat-label>Prétention salariale</mat-label>
+                                <input type="number" min="0" name="pret_salary_min" id="pret_salary_min" formControlName="pret_salary_min" matInput>
+                                 </mat-form-field>
+                            <mat-form-field appearance="outline" class="example-full-width col-md-6">
+                                <mat-label>Prétention salariale max</mat-label>
+                                <input type="number" [min]="pret_salary_min.value" name="pret_salary_max" id="pret_salary_max" formControlName="pret_salary_max" matInput>
+                                   </mat-form-field>
+                            <div class="col-md-12 text-center">
+                                <button (click)="file_upload.click()" class="col-12" mat-raised-button mat-button color="primary">Importer cv depuis ce pc</button>
+                            <mat-icon *ngIf="documentExists" matTooltip="Voir le document"  (click)="readDocument()" mat-button mat-raised-button style="cursor: pointer;">visibility</mat-icon>
+                            <mat-icon *ngIf="documentExists" matTooltip="Retirer document"  (click)="removeDocument()" mat-button mat-raised-button style="cursor: pointer;" color="warn">close</mat-icon>
+                            </div>
+                            <input style="display:none;" type="file" #file_upload name="fichier" accept=".pdf,.jpg,jpeg,.gif,.png,.svg" (change)="cvChange($event,'cv')"
+                            id="fichier" formControlName="fichier" placeholder="Choisir le cv" />
+                        </fieldset>
+                
+              
+            </form>
+
+    <button mat-icon-button color="primary" (click)="onSubmit()" style=" position: fixed; bottom: 10px;right:25px;" matTooltip="Mise à jour"><mat-icon>edit</mat-icon></button>
+       
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<form [formGroup]="form_step_one">
+
+    <div class="row mb-2">
+        <div class="col-12 mt-3 text-left text-bold">
+          <span style="font-size: 29px;">A propos de l'entreprise</span>
+        </div>
+ 
+       </div>
+    
+      
+  
+
+        <div class="form-row form-group">
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Taille entreprise</mat-label>
+            <mat-select name="taille" formControlName="taille"
+
+                [value]="taille.value">
+                <mat-option  value="null">Combien d'employés?</mat-option>
+                <mat-option *ngFor="let option of size"
+                    [value]="option.key">
+                    {{option.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+     
+
+</form>

@@ -1,0 +1,23 @@
+@import '../../../property.scss';
+ 
+div.col-md-12.text-center> h1{
+    color:$text-blue;
+
+} 
+mat-card{
+    background-color: $main-lg-in-color !important;
+}
+
+form .resume-virtual-header{
+    font-size: 1.4375rem;
+    letter-spacing: -.1px;
+    font-weight: 700;
+    line-height: 1.22;
+    margin-bottom: 1.5rem;
+} 
+
+form fieldset{
+    padding:4px;
+    border: 1px #cacacacb solid;
+    border-radius: 0.43rem;
+}

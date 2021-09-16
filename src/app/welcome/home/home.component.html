@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row" [formGroup]="form_step_one">
+        <div class="col-md-8 mx-auto mb-1">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <app-shared-search-home  [model]="'model_1'" [form_step_one]="form_step_one" [where]="where" [what]="what"
+                        [filteredOptions]="filteredOptions" [filteredOptions1]="filteredOptions1" class="col-md-12">
+                    </app-shared-search-home>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-8 mx-auto">
+            <div class="row">
+              
+                   
+
+                
+
+                    <div  *ngIf="publishResumeBlock" class="col-md-12 text-center p-2">
+                        <a [routerLink]="cv_upload">Publier votre CV</a><span> – </span><span>Il suffit de quelques clics</span>
+
+                    </div>
+                    
+                    <div *ngIf="publishResumeBlock || publishEntAnnounceBlock" class="col-md-12 text-center p-2">
+                        <a [routerLink]="announce">Entreprises : Publiez une annonce</a><span> – </span><span>Trouvez votre prochain
+                            talent ici.</span>
+
+                    </div>
+                
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 p-0 second-sub"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 third-sub"></div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 four-sub"></div>
+    </div>
+</div>
+
+
+<div class="container-fluid" *ngIf="publishResumeBlock">
+    <div class="row">
+        <div class="col-md-12 pr-0 pl-0 pt-3 five-sub">
+            <span class="col-12 justify-content-center five-sub-span first">Permettez aux employeurs de vous
+                trouver</span>
+            <span class="col-12 justify-content-center five-sub-span second mt-2">
+                <a  mat-raised-button mat-button color="primary" [routerLink]="cv_upload">Déposer votre cv</a>
+            </span>
+        </div>
+       
+    </div>
+</div> 

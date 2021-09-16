@@ -1,0 +1,7 @@
+{
+"local_host":"http://localhost:4200/",
+"remote_host":"http://localhost:8080/",
+"remote_api_host":"http://localhost:8080/api/",
+"folder_key":"default"
+}
+

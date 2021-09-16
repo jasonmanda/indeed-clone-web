@@ -1,0 +1,199 @@
+<form [formGroup]="form_step_one">
+  <mat-card class="p-4 mb-4">
+    <div class="row mb-2">
+      <div class="col-12 mt-3 text-left text-bold">
+        <span style="font-size: 29px;">Critères de l'offre</span>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="form-row form-group">
+      <div>
+      <label >Type contrat</label>
+
+      </div>
+      <mat-radio-group name="type_contrat" formControlName="type_contrat" aria-label="Select an option"
+        class="example-full-width col-md-12">
+        <mat-radio-button value="Interim">Intérim</mat-radio-button>
+        <mat-radio-button value="Stage">Stage</mat-radio-button>
+        <mat-radio-button value="Freelance_independant">Freelance/Indépendant</mat-radio-button>
+        <mat-radio-button value="CDD">CDD</mat-radio-button>
+        <mat-radio-button value="CDI">CDI</mat-radio-button>
+        <mat-radio-button value="Apprentissage">Apprentissage</mat-radio-button>
+        <mat-radio-button value="Contrat_pro">Contrat pro</mat-radio-button>
+      </mat-radio-group>
+
+    </div>
+    <div class="form-row form-group">
+      <mat-form-field appearance="outline" class="example-full-width col-md-12">
+        <mat-label>Type d'emploi</mat-label>
+        <mat-select name="type_emp" formControlName="type_emp" [value]="type_emp.value">
+          <mat-option value="Temps plein">Temps plein</mat-option>
+          <mat-option value="Temps partiel">Temps partiel</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card>
+
+
+  <mat-card class="p-4 mb-4">
+    <div class="row mb-2">
+      <div class="col-12 mt-3 text-left text-bold">
+        <span style="font-size: 29px;">
+          <mat-icon>money</mat-icon> Salaires et avantages
+        </span>
+      </div>
+
+    </div>
+
+
+
+    <div class="form-row form-group" *ngIf="!salaire_model.value">
+      <mat-form-field appearance="outline" class="example-full-width col-md-6">
+        <mat-label>Salaire</mat-label>
+        <input type="number" matInput id="salaire" name="salaire" formControlName="salaire" />
+     
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="example-full-width col-md-6">
+
+
+        <mat-select name="salaire_type" formControlName="salaire_type" [value]="salaire_type.value">
+          <mat-option value="par heure">Par heure</mat-option>
+          <mat-option value="par mois">Par mois</mat-option>
+          <mat-option value="par annee">Par année</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div class="form-row form-group">
+      <mat-form-field appearance="outline" *ngIf="salaire_model.value" class="example-full-width col-md-6">
+        <mat-label>Salaire min</mat-label>
+        <input type="number" matInput id="salaire_min" name="salaire_min" formControlName="salaire_min" />
+       
+      </mat-form-field>
+      <mat-form-field appearance="outline" *ngIf="salaire_model.value" class="example-full-width col-md-6">
+        <mat-label>Salaire max</mat-label>
+        <input type="number" matInput id="salaire_max" name="salaire_max" formControlName="salaire_max" />
+      
+      </mat-form-field>
+      <mat-checkbox formControlName="salaire_model">{{salaire_model.value?"Salaire par rangée":"Salaire fixe"}}
+      </mat-checkbox>
+    </div>
+    <mat-checkbox formControlName="no_salaire" class="mb-2">Ne pas afficher le salaire dans l'annonce</mat-checkbox>
+    <div class="form-row form-group">
+      <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label><b>Avantages</b></mat-label>
+     <mat-select formControlName="avantages" multiple [value]="avantages.value">
+      <mat-option value="remote_working">
+        Travail à distance possible</mat-option>
+      <mat-option value="horaire_flex">
+        Horaires flexibles</mat-option>
+      <mat-option value="part_transp">
+        Participation au transport</mat-option>
+      <mat-option
+        value="titre_restau_panier">Titre-restaurant / Panier</mat-option>
+      <mat-option value="13mois">13ième
+        mois</mat-option>
+      <mat-option value="13mois+">13ième
+        mois+</mat-option>
+      <mat-option value="vdf">Véhicule de
+        fonction</mat-option>
+      <mat-option value="rtt">RTT(Réduction
+        du temps de travail)</mat-option>
+      <mat-option value="epargne_sal">
+        Epargne salariale</mat-option>
+      <mat-option value="autre">Autre
+      </mat-option>
+     </mat-select>
+    </mat-form-field>
+
+
+    </div>
+  </mat-card>
+
+
+  <mat-card class="p-4 mb-4">
+    <div class="row mb-2">
+      <div class="col-12 mt-3 text-left text-bold">
+        <span style="font-size: 29px;">Paramètre de candidature</span>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="form-row form-group">
+      <div>
+      <label><b>Souhaitez vous que chaque candidat joigne son CV?</b></label>
+      </div>
+      <mat-radio-group name="cv_require" formControlName="cv_require" aria-label="Select an option"
+      class="example-full-width col-md-12" [value]="cv_require.value">
+      <mat-radio-button [value]="true">Oui</mat-radio-button>
+      <mat-radio-button [value]="false">Non</mat-radio-button>
+    </mat-radio-group>
+    </div>
+
+    
+    <div class="form-row form-group">
+      <div>
+      <label><b>Test de compétence</b></label>
+      </div>
+      <mat-radio-group name="test_compet" formControlName="test_compet" aria-label="Select an option"
+      class="example-full-width col-md-12" [value]="test_compet.value">
+      <mat-radio-button [value]="true">Oui</mat-radio-button>
+      <mat-radio-button [value]="false">Non</mat-radio-button>
+    </mat-radio-group>
+    </div>
+  </mat-card>
+
+  
+  <mat-card class="p-4 mb-4">
+    <div class="row mb-2">
+      <div class="col-12 mt-3 text-left text-bold">
+        <span style="font-size: 29px;">Description</span>
+      </div>
+
+    </div>  
+    
+      
+      <div class="form-row form-group">
+        <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Description</mat-label>
+            <textarea rows="5" matInput id="description" name="description" formControlName="description">
+                </textarea>
+  
+        </mat-form-field>
+
+    </div>
+
+    <div class="form-row form-group">
+        <mat-form-field class="example-full-width col-md-12" appearance="outline"> 
+            <mat-label>Choisir la date limite pour poster</mat-label>
+              <input matInput name="date_limit" class="text-bold"   (click)="bindDateLimitPicker.open()"  formControlName="date_limit"  [matDatepicker]="bindDateLimitPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindDateLimitPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindDateLimitPicker 
+                      startView="multi-year"
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+           
+            </mat-form-field>
+    </div>
+    <div class="form-row form-group" >
+        <mat-form-field *ngIf="!date_immediat.value" class="example-full-width col-md-12" appearance="outline"> 
+            <mat-label>Choisir la date début travail</mat-label>
+              <input matInput name="date_debut" class="text-bold"   (click)="bindDateDebutPicker.open()"  formControlName="date_debut"  [matDatepicker]="bindDateDebutPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindDateDebutPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindDateDebutPicker 
+                      startView="multi-year"
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+         
+            </mat-form-field>
+            <mat-checkbox matTooltip="Si actif l'utilisateur commencera le boulot dès qu'il sera retenue" [value]="date_immediat.value" formControlName="date_immediat">{{date_immediat.value?"Actif":"Désactivé"}}
+            </mat-checkbox>
+    </div>
+
+  </mat-card>
+</form>

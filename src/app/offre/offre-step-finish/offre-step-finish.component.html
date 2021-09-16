@@ -1,0 +1,74 @@
+<form>
+    <div class="row mb-2">
+      <div class="col-12 mt-3 text-left text-bold">
+        <span style="font-size: 29px;">{{is_recap?"Récapitulatif":"Détail"}} de l'offre</span>
+      </div>
+
+    </div>
+
+    <div class="form-row form-group" *ngIf="opt=='entreperise'">
+      <label class="pl-2 pr-2 col-12">Cabinet Recrutement: <span><b>{{cab_recrutement?"VRAI":"FAUX"}}</b></span> </label>
+   </div>
+
+   <div class="form-row form-group" *ngIf="cab_recrutement">
+    <label class="pl-2 pr-2 col-12">Nom entreperise: <span><b>{{nom_ent}}</b></span> </label>
+   </div>
+
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Poste: <span><b>{{poste}}</b></span> </label>
+   </div>
+
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Ville: <span><b>{{localite}}</b></span> </label>
+   </div>
+
+   <div class="form-row form-group" *ngIf="cab_recrutement">
+    <label class="pl-2 pr-2 col-12">Taille entreprise: <span><b>{{taille}}</b></span> </label>
+   </div>
+
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Type d'emploi: <span><b>{{type_emp}}</b></span> </label>
+   </div>
+
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Type de contrat: <span><b>{{type_contrat|offre:'type_contrat'}}</b></span> </label>
+   </div>
+
+   <div class="form-row form-group" *ngIf="!salaire_model && no_salaire">
+    <label class="pl-2 pr-2 col-12">Salaire fixe: <span><b>{{salaire| number:'':'fr-FR'}} XOF {{salaire_type|offre:'salaire_type'}}</b></span> </label>
+   </div>
+   <div class="form-row form-group" *ngIf="salaire_model && no_salaire">
+    <label class="pl-2 pr-2 col-12">Salaire rangé: <span><b>{{salaire_min| number:'':'fr-FR'}} XOF-{{salaire_max| number:'':'fr-FR'}} XOF</b></span> </label>
+   </div>
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Cachez le salaire dans l'offre: <span><b>{{no_salaire?"VRAI":"FAUX"}}</b></span> </label>
+   </div>
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Avantages: 
+      <div *ngFor="let x of avantages">
+        <span><b>{{x|offre:'avantages'}}</b></span>
+      </div>  
+    </label>
+   </div>
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Cv requis: <span><b>{{cv_require?"VRAI":"FAUX"}}</b></span> </label>
+   </div>
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Test de compétence: <span><b>{{test_compet?"VRAI":"FAUX"}}</b></span> </label>
+   </div>
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Description: <span><b>{{description}}</b></span> </label>
+   </div>
+   <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Date limite dépôt: <span><b>{{date_limit| date:'dd MM yyyy'}}</b></span> </label>
+   </div>
+   <div class="form-row form-group" *ngIf="!date_immediat">
+    <label class="pl-2 pr-2 col-12">Date debut: <span><b>{{date_debut| date:'dd MM yyyy'}}</b></span> </label>
+   </div>
+   <div class="form-row form-group" *ngIf="date_immediat">
+    <label class="pl-2 pr-2 col-12">Date debut: <span><b>Immédiatement retenue</b></span> </label>
+   </div>
+   <div class="form-row form-group"></div>
+
+ 
+</form>

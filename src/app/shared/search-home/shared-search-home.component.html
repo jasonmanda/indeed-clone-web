@@ -1,0 +1,97 @@
+<div class="row" [formGroup]="form_step_one" *ngIf="model=='model_1'">
+    <div class="col-md-5 pl-1 pr-1 model_1">
+        <div class="col-md-12 p-0">
+            <label class="first model_1">quoi</label><span class="sub-text-home model_1">métier, mots-clés ou
+                entreprise</span>
+        </div>
+        <div class="col-md-12 p-0">
+            <mat-form-field appearance="outline" class="col-12 p-0">
+                <input type="text" matInput name="what" formControlName="what"
+                    [matAutocomplete]="bindSpecWroldAutoComplete">
+                <mat-autocomplete #bindSpecWroldAutoComplete="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-icon matSuffix>search</mat-icon>
+
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="col-md-5 pl-1 pr-1">
+        <div class="col-md-12 p-0">
+            <label class="first model_1">où</label><span class="sub-text-home model_1">ville</span>
+
+        </div>
+        <div class="col-md-12 p-0">
+            <mat-form-field appearance="outline" class="col-12 p-0">
+                <input type="text" matInput name="where" formControlName="where"
+                    [matAutocomplete]="bindWhereAutoComplete">
+                <mat-autocomplete #bindWhereAutoComplete="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-icon matSuffix>location_on</mat-icon>
+
+            </mat-form-field>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-2 model_1"><a mat-raised-button mat-button color="primary"
+            [routerLink]="(base_link=='/'?('/search/'+what.value+'/'+where.value):(base_link+'/search/'+what.value+'/'+where.value))">Rechercher</a>
+    </div>
+</div>
+
+
+<div  class="row" [formGroup]="form_step_one" *ngIf="model=='model_2'">
+    <div class="col-md-5 pl-1 pr-1">
+        <div class="col-md-12 p-0">
+            <label class="first model_2">quoi</label><span class="sub-text-home model_2">métier, mots-clés ou
+                entreprise</span>
+        </div>
+        <div class="col-md-12 p-0">
+            <mat-form-field appearance="outline" [ngClass]="'model_2'" class="col-12 p-0">
+                <input type="text" matInput name="what" formControlName="what"
+                    [matAutocomplete]="bindSpecWroldAutoComplete">
+                <mat-autocomplete #bindSpecWroldAutoComplete="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-icon matSuffix>search</mat-icon>
+
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="col-md-5 pl-1 pr-1">
+        <div class="col-md-12 p-0">
+            <label class="first model_2">où</label><span class="sub-text-home model_2">ville</span>
+
+        </div>
+        <div class="col-md-12 p-0"> 
+        
+            <mat-form-field appearance="outline"  [ngClass]="'model_2'" class="col-12 p-0">
+                <input type="text" matInput name="where" formControlName="where"
+                    [matAutocomplete]="bindWhereAutoComplete">
+                <mat-autocomplete #bindWhereAutoComplete="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions1 | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-icon matSuffix>location_on</mat-icon>
+
+            </mat-form-field>
+        </div>
+
+
+    </div>
+
+    <div class="col-md-2 model_2"><a mat-raised-button mat-button color="primary"
+            [routerLink]="(base_link=='/'?('/search/'+what.value+'/'+where.value):(base_link+'/search/'+what.value+'/'+where.value))">Rechercher</a>
+    </div>
+</div>

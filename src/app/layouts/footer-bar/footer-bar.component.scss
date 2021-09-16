@@ -1,0 +1,11 @@
+@import '../../../property.scss';
+div>div.row>div.col-md-12>a.link-footer{
+    color:$connexion-color;
+    font-size: $font-size;
+    font-weight: normal; 
+}
+div>div.row>div.col-md-12>a.link-footer:hover{ 
+    color:$text-blue;
+    font-size: $font-size;
+    font-weight: normal; 
+}

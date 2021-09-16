@@ -1,0 +1,88 @@
+<form [formGroup]="form">
+
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Choisir type compte</span>
+  </div>
+  
+ 
+  <div class="form-group form-row justify-content-center">
+    <mat-radio-group formControlName="type_account" (change)="changeTypeAccount($event)" aria-label="Select an option">
+      <mat-radio-button value="entreprise" class="mr-2">Entreprise</mat-radio-button>
+      <mat-radio-button value="professionnel">Professionnel</mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+
+  <div class="form-row form-group" *ngIf="type_account.value=='entreprise'" >
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Nom entreprise</mat-label>
+        <input type="text" matInput id="nom_ent" name="nom_ent" formControlName="nom_ent" >
+     
+       
+      </mat-form-field>
+  
+  </div> 
+
+  
+  <div class="form-row form-group justify-content-center" *ngIf="type_account.value=='entreprise'">
+    <mat-checkbox class="text-left" color="primary" id="cab_recrutement" name="cab_recrutement" formControlName="cab_recrutement">Cabinet de recrutement </mat-checkbox>  
+  </div>
+
+
+  <div class="form-row form-group">
+    <div class="col-12">
+      <form [formGroup]="form_upload_file" enctype="multipart/form-data">
+        <div class="row">
+         
+          <div class="col-12">
+            <div class="mx-auto div-img-slksld">
+              <img matTooltip="{{type_account.value=='entreprise'?'Logo entreprise':'Photo profil'}}" [src]="kronos_logo" alt="..." (click)="file_upload.click()"  class="img-thumbnail img-slxidz mb-2">
+              <input style="display:none;" type="file" #file_upload name="fichier" (change)="logoChange($event,type_account.value)"
+                id="fichier" formControlName="fichier" placeholder="Choisir le logo" accept=".jpg,.jpeg,.png,.gif" />
+              <button mat-mini-fab class="btn-img-xcsze" color="warn" (click)="removeImg()"
+                [disabled]="progress_upload">
+                <mat-icon>clear</mat-icon> 
+              </button>
+              <app-shared-spinner [progress_upload_real]="progress_upload_real"></app-shared-spinner>
+          
+            </div>
+
+          </div>
+        </div>
+
+
+      </form>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="form-group form-row text-center" *ngIf="data_type=='add'">
+  
+    <div class="col-6">
+      <button (click)="onSubmit(form.value,'back')" class="col-md-12" [disabled]="!form.valid" mat-raised-button mat-button color="primary"><mat-icon>arrow_back_ios</mat-icon> Retour</button>
+
+    </div>
+    <div class="col-6">
+      <button (click)="onSubmit(form.value,'next')" class="col-md-12" [disabled]="!form.valid || hold " mat-raised-button mat-button color="primary">Suivant<mat-icon>arrow_forward_ios</mat-icon></button>
+      
+    </div>
+ 
+    
+  </div>
+
+  <div class="form-group form-row justify-content-center" *ngIf="data_type=='edit'">
+  
+  
+ 
+      <button (click)="onSubmit(form.value,'update')"   [disabled]="!form.valid" mat-raised-button mat-button color="primary">Modifier<mat-icon>edit</mat-icon></button>
+      
+     
+ 
+    
+  </div>
+
+
+</form>

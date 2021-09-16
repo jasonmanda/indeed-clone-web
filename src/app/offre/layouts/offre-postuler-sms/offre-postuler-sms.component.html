@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Envoyé de message de retenue</h2>
+<mat-dialog-content>
+  <form method="POST" enctype="multipart/form-data"  [formGroup]="form_step_one" class="mt-2">
+ 
+          <div class="form-row form-group">
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Message</mat-label>
+              <textarea rows="5" matInput id="message" name="message" formControlName="message"
+                  >
+                  </textarea>
+           
+          </mat-form-field>
+
+          </div>
+          <div class="col-md-12 text-center">
+            <h4>Nb:Une fois envoyé il ne sera plus possible d'annuler</h4>
+          </div>
+          <div class="justify-content-center text-center mt-2 mb-2">
+        
+             <button mat-button mat-raised-button color="primary" [disabled]="form_step_one.invalid" (click)="onSubmit()">Envoyé</button>
+            </div>
+      </form>
+</mat-dialog-content> 
+<mat-dialog-actions class="justify-content-center">
+
+    <button mat-raised-button mat-button color="warn" (click)="close('close')"
+      ><mat-icon>close</mat-icon>Quitter</button>
+  </mat-dialog-actions>
+   

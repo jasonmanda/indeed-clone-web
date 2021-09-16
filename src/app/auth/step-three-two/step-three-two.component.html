@@ -1,0 +1,70 @@
+<form [formGroup]="form">
+  <fieldset class="mb-2">
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Information personnelle</span>
+  </div>
+   
+  <div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Nom</mat-label>
+        <input type="text" matInput id="nom" name="nom" formControlName="nom"  >
+     
+      </mat-form-field>
+  
+  </div>
+
+  <div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+        <mat-label>Prénom</mat-label>
+        <input type="text" matInput id="prenom" name="prenom" formControlName="prenom" >
+     
+ 
+      </mat-form-field>
+  </div>
+ 
+
+</fieldset>
+
+<fieldset class="mb-2">
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Localiser vous</span>
+  </div>
+
+  <div class="form-group form-row justify-content-center">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+        <mat-label>Nom de la ville</mat-label>
+        <input type="text"  matInput
+        name="where" formControlName="where"  [matAutocomplete]="bindWhereAutoComplete">
+        <mat-autocomplete #bindWhereAutoComplete="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+        </mat-autocomplete>
+        <mat-icon matSuffix>location_on</mat-icon>
+
+    </mat-form-field>
+</div>
+</fieldset>
+
+ 
+<div class="form-group form-row text-center" *ngIf="data_type=='add'">
+  <div class="col-6">
+    <button (click)="onSubmit(form.value,'back')" class="col-md-12" [disabled]="!form.valid" mat-raised-button mat-button color="primary"><mat-icon>arrow_back_ios</mat-icon> Retour</button>
+
+  </div>
+  <div class="col-6">
+    <button (click)="onSubmit(form.value,'next')" class="col-md-12" [disabled]="!form.valid" mat-raised-button mat-button color="primary">Suivant<mat-icon>arrow_forward_ios</mat-icon></button>
+
+  </div>
+
+
+
+</div>
+
+<div class="form-group form-row justify-content-center" *ngIf="data_type=='edit'">
+  
+  <button (click)="onSubmit(form.value,'update')"   [disabled]="!form.valid" mat-raised-button mat-button color="primary">Modifier<mat-icon>edit</mat-icon></button>
+  
+</div>
+
+</form>

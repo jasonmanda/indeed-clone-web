@@ -1,0 +1,133 @@
+<main>
+  <div class="container-fluid">
+
+    <div class="row"> 
+      <div class="mx-auto col-md-7 text-center mb-2">
+      <a mat-icon-button mat-button mat-raised-button class="mr-1" color="primary" (click)="loadListSoumission()"><mat-icon>refresh</mat-icon></a>
+
+      </div>
+      <div class="col-md-7 mx-auto mb-5">
+        <mat-card class="p-2 mb-4">
+         
+
+  
+          <div class="example-container mat-elevation-z8" >
+            <div>
+            <!-- <h4 class="alert alert-danger">jason</h4> -->
+              <app-shared-spinner [progress_upload_real]="progress_upload_real"></app-shared-spinner>
+            </div>
+          
+         
+            <table id="tableOffreSoumissionListSize" mat-table [dataSource]="dataSource"  matSort>
+               
+        <!-- gffgh(contextmenu)="" -->
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="($event ? masterToggle() : null);update($event,null,'delete','all')"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            color="primary">
+              </mat-checkbox>
+            </th>
+            <td [ngClass]="{'green':row.retenue}" mat-cell *matCellDef="let row;">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="($event ? selection.toggle(row) : null);update($event,row,'delete','one')"
+                            [checked]="selection.isSelected(row)"
+                            color="primary"
+                            id="only-{{row.id}}"
+                            >
+                      
+              </mat-checkbox>
+             
+            </td>
+          </ng-container>
+        
+        
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Identifiant. </th>
+                <td [ngClass]="{'green':element.retenue}"  mat-cell *matCellDef="let element" > {{element.id}}
+             </td>
+              </ng-container>
+              <ng-container matColumnDef="poste">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Poste </th>
+                <td  [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" > {{element.offre.poste}}
+               </td>
+              </ng-container>
+        
+              <ng-container matColumnDef="cab_recrutement">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header matTooltip="Cabinet de recrutement" ><span>Cabinet rec.</span> </th>
+                <td  [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" > {{element.offre.cab_recrutement?"VRAI":"FAUX"}}
+               </td>
+              </ng-container>
+               
+              <ng-container matColumnDef="date_limit">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header><span>Date limite</span> </th>
+                <td  [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" > {{element.offre.date_limit| date:'dd MM yyyy'}}
+               </td>
+              </ng-container>
+
+              <ng-container matColumnDef="date_debut">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header><span>Date début</span> </th>
+                <td [ngClass]="{'green':element.retenue}"  mat-cell *matCellDef="let element" > 
+                  <div *ngIf="element.offre.date_immediat">Immédiatement après sélection</div>
+                  <div *ngIf="!element.offre.date_immediat">{{element.offre.date_debut| date:'dd MM yyyy'}}</div>
+               </td>
+              </ng-container>
+                   
+           
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="action">
+                <th  mat-header-cell *matHeaderCellDef > Action </th>
+                <td [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" >  
+                    <!-- matTooltip="Ajouter"  (click)="openDialog('ajouter','add')" -->
+                  <a [routerLink]="base_link+'/offre/'+element.offre.id_offre+'/null/null'" mat-icon-button mat-button mat-raised-button class="mr-1" color="primary" ><mat-icon>more</mat-icon></a>
+                  <button mat-mini-fab  matTooltip="Info" color="accent" (click)="update(null,element,'info','one')"> <mat-icon>info</mat-icon></button>
+                               
+                  <!-- <button mat-mini-fab mat-raised-button  color="primary" (click)="update(null,element,'info','none')"> <mat-icon>info</mat-icon></button> -->
+           
+                </td>
+              </ng-container>
+              
+            
+         
+               
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+           
+            <mat-paginator #paginator lastPageLabel="Nombre d'offre par page" [pageSizeOptions]="[5,10,25,50,75,100]" showFirstLastButtons></mat-paginator>
+          </div>
+          
+          
+        </mat-card>
+     
+   
+    
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 
+
+  <mat-card class="alternate-theme">
+    Alternate Theme:
+    <button mat-raised-button color="primary">
+      Primary
+    </button>
+    <button mat-raised-button color="accent">
+      Accent
+    </button>
+    <button mat-raised-button color="warn">
+      Warning
+    </button>
+  </mat-card> -->
+</main>
+
+<footer class="docs-footer mt-1">
+  <router-outlet name="footer"></router-outlet>
+  <!-- <app-footer-bar></app-footer-bar> -->
+</footer>

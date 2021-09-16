@@ -1,0 +1,121 @@
+<main>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-12 text-left">
+      <a [routerLink]="offres" mat-button mat-raised-button color="primary">Mes offres</a>
+
+      </div>
+      <div class="col-md-6 mx-auto mb-2 mb-5">
+      
+        <mat-card class="p-2 mb-4"> 
+          <div class="example-container mat-elevation-z8" >
+            <div>
+            <!-- <h4 class="alert alert-danger">jason</h4> -->
+              <app-shared-spinner [progress_upload_real]="progress_upload_real"></app-shared-spinner>
+            </div>
+          
+         
+            <table id="tableOffreOnlyDetailSize" mat-table [dataSource]="dataSource"  matSort>
+               
+        <!-- gffgh(contextmenu)="" -->
+          <!-- Checkbox Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="($event ? masterToggle() : null);update($event,null,'delete','all')"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()"
+                            
+                            color="primary">
+              </mat-checkbox>
+            </th>
+            <td [ngClass]="{'green':row.retenue}" mat-cell *matCellDef="let row;">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="($event ? selection.toggle(row) : null);update($event,row,'delete','one')"
+                            [checked]="selection.isSelected(row)"
+            
+                            color="primary"
+                            id="only-{{row.id}}"
+                            >
+                      
+              </mat-checkbox>
+             
+            </td>
+          </ng-container>
+        
+        
+              <!-- Position Column -->
+             <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Identifiant. </th>
+                <td [ngClass]="{'green':element.retenue}"  mat-cell *matCellDef="let element" > {{element.id}}
+             </td> 
+              </ng-container>
+              <ng-container matColumnDef="nom">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Nom </th>
+                <td [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" > {{element.cv.personne.nom_personne}}
+               </td>
+              </ng-container>
+              <ng-container matColumnDef="prenom">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Prénom </th>
+                <td [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" > {{element.cv.personne.prenom_personne}}
+               </td>
+              </ng-container>
+              <ng-container matColumnDef="ville">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header > Ville </th>
+                <td [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" > {{element.cv.personne.ville.nom_ville}}
+               </td>
+              </ng-container>
+ 
+              
+          
+              <ng-container matColumnDef="action">
+                <th  mat-header-cell *matHeaderCellDef > Action </th>
+                <td [ngClass]="{'green':element.retenue}" mat-cell *matCellDef="let element" >  
+                 
+                  <button mat-mini-fab  matTooltip="Info" color="accent" (click)="update(null,element,'info','one')"> <mat-icon>info</mat-icon></button>
+                               
+ 
+                </td>
+              </ng-container>
+              
+       
+         
+               
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" ></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+           
+            <mat-paginator #paginator lastPageLabel="Nombre d'offre par page" [pageSizeOptions]="[5,10,25,50,75,100]" showFirstLastButtons></mat-paginator>
+          </div>
+          <div class="col-md-12 text-center mt-1">
+            <button mat-button mat-raised-button color="primary" (click)="validate()">Envoyer message</button>
+          </div>
+
+        </mat-card>
+   
+ 
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 
+
+  <mat-card class="alternate-theme">
+    Alternate Theme:
+    <button mat-raised-button color="primary">
+      Primary
+    </button>
+    <button mat-raised-button color="accent">
+      Accent
+    </button>
+    <button mat-raised-button color="warn">
+      Warning
+    </button>
+  </mat-card> -->
+</main>
+
+<footer class="docs-footer mt-1">
+  <router-outlet name="footer"></router-outlet>
+  <!-- <app-footer-bar></app-footer-bar> -->
+</footer>

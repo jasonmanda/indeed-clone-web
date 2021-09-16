@@ -1,0 +1,8 @@
+mat-toolbar
+  > header
+  > nav
+  > div.col-6.pull-right
+  > app-header-bar
+  > form.form-inline {
+  display: inline-flex;
+}

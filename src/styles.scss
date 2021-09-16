@@ -1,0 +1,325 @@
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import './property.scss';
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%;}
+html .page-wrapper {
+    height: calc(100vh - 64px);
+}
+.hide{ 
+    display: none;
+    
+}
+.text-bold {
+    font-weight: 500;
+}
+.white-theme.primary-theme{
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    font-weight: 300;
+ 
+  }
+  .white-theme.primary-theme{
+     color: $connexion-color;
+    background:#fff;
+  }
+   
+
+  
+  
+  .custom-file-label::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    height: calc(1.5em + 0.75rem);
+    padding: 0.375rem 0.75rem;
+    line-height: 1.5;
+    color: #495057;
+    content: "Parcourir" !important;
+    background-color: #e9ecef;
+    border-left: inherit;
+    border-radius: 0 0.25rem 0.25rem 0;
+}
+  
+@media screen and (min-width:768px){
+    .custom-content-height{
+        overflow-y: scroll;
+        height: 201px !important;
+    }
+
+}
+
+.mt-6,.my-6{
+    margin-top:4rem !important;
+}
+.mt-7,.my-7{
+    margin-top:5rem !important;
+}
+.mt-8,.my-8{
+    margin-top:6rem !important;
+}
+.mt-9,.my-9{
+    margin-top:7rem !important;
+}
+.mt-10,.my-10{
+    margin-top:8rem !important;
+}
+.mt-11,.my-11{
+    margin-top:9rem !important;
+}
+.mt-12,.my-12{
+    margin-top:10rem !important;
+}
+.mt-13,.my-13{
+    margin-top:11rem !important;
+}
+.mt-14,.my-14{
+    margin-top:12rem !important;
+}
+.mt-15,.my-15{
+    margin-top:13rem !important;
+}
+.mt-16,.my-16{
+    margin-top:14rem !important;
+}
+.p-0{
+    padding: 0px !important;
+}
+.p-r-0{
+    padding-right: 0px !important;
+}
+.p-l-0{
+    padding-left: 0px !important;
+}
+.pt-6,.py-6{
+    margin-top:4rem !important;
+}
+.pt-7,.py-7{
+    margin-top:5rem !important;
+}
+.pt-8,.py-8{
+    margin-top:6rem !important;
+}
+.pt-9,.py-9{
+    margin-top:7rem !important;
+}
+.pt-10,.py-10{
+    margin-top:8rem !important;
+}
+.pt-11,.py-11{
+    margin-top:9rem !important;
+}
+.pt-12,.py-12{
+    margin-top:10rem !important;
+}
+.pt-13,.py-13{
+    margin-top:11rem !important;
+}
+.pt-14,.py-14{
+    margin-top:12rem !important;
+}
+.pt-15,.py-15{
+    margin-top:13rem !important;
+}
+.pt-16,.py-16{
+    margin-top:14rem !important;
+}
+
+.m-6,.mx-6{
+    margin-top:4rem !important;
+}
+.m-7,.mx-7{
+    margin-top:5rem !important;
+}
+.m-8,.mx-8{
+    margin-top:6rem !important;
+}
+.m-9,.mx-9{
+    margin-top:7rem !important;
+}
+.m-10,.mx-10{
+    margin-top:8rem !important;
+}
+.m-11,.mx-11{
+    margin-top:9rem !important;
+}
+.m-12,.mx-12{
+    margin-top:10rem !important;
+}
+.m-13,.mx-13{
+    margin-top:11rem !important;
+}
+.m-14,.mx-14{
+    margin-top:12rem !important;
+}
+.m-15,.mx-15{
+    margin-top:13rem !important;
+}
+.m-16,.mx-16{
+    margin-top:14rem !important;
+}
+ 
+ /* mat-sidenav{
+
+  margin-top:4.6%;
+ } */
+/* Custom */
+
+* {
+    outline: 0;
+    box-sizing: border-box;
+}
+@media screen and (max-width:329px){
+    #log-out-top {
+display: none !important;}
+}
+
+mat-toolbar .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+    /* padding: 8px 0; */
+.mat-mini-fab .mat-button-wrapper {
+
+      padding: 0px !important;
+}
+mat-toolbar.topbar {
+    padding: 0 15px;
+        /* padding-top: 0px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+        padding-left: 15px; */
+}
+    /* position: relative; */
+.topbar {
+    position: relative;
+    z-index: 2;
+}
+
+
+.example-sidenav-container {
+    -webkit-box-flex: 1;
+    flex: 1;
+    -webkit-box-flex: 1;
+    flex: 1 0 auto;
+}
+.mat-sidenav-fixed{
+    position: absolute !important;
+}
+.main-container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+main{
+    padding:1%;
+}
+ 
+/* .mat-toolbar.mat-primary {
+    
+    position: fixed !important;
+  
+} */
+ 
+
+.user-profile {
+    position: relative;
+    background-size: cover;
+    background: url("./assets/template/user-info.jpg") repeat-x;
+}
+.user-profile .profile-img {
+    width: 50px;
+    margin-left: 30px;
+ 
+    padding: 35px 0;
+    border-radius: 100%;
+}
+
+#snav .mat-list-item.selected > .mat-list-item-content > a {
+    background: #26c6da;
+    border-radius: 4px;
+    color: #fff;
+}
+.user-profile .profile-img:before {
+    -webkit-animation: 2.5s linear infinite blow;
+    animation: 2.5s linear infinite blow;
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 50px;
+    top: 31px;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 0;
+  }
+.user-profile .profile-img img {
+    width: 100%;
+    border-radius: 100%;
+}
+mat-sidenav{
+ 
+    width: fit-content;
+padding-top: 0;
+ 
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+    height: 64px;
+}
+#snav {
+    box-shadow: 1px 0 20px rgba(0,0,0,.08);
+    /* width:fit-content !important; */
+}
+.mat-drawer-side {
+    border-right: 1px solid rgba(0,0,0,.12);
+}
+.user-profile .profile-text {
+    padding: 1px 0;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.user-profile .profile-text > a {
+    color: #fff !important;
+    width: 100%;
+    padding: 6px 30px;
+    background: rgba(0,0,0,.5);
+    display: block;
+    white-space: nowrap;
+}
+ 
+.example-tree .mat-tree{
+    padding-bottom: 100px;
+}
+
+
+@media screen and (max-width:767px){
+    .custom-hide-component{
+        display:none !important;
+    }
+}
+
+// **********
+
+ 
+
+
+.mat-form-field-appearance-outline.model_2 .mat-form-field-flex {
+    min-height: 42px;
+    height: 42px;
+   }
+.mat-form-field-appearance-outline.model_2 .mat-form-field-prefix, .mat-form-field-appearance-outline.model_2 .mat-form-field-suffix {
+    top: .50em;
+}
+.mat-form-field-appearance-outline.model_2 .mat-form-field-infix {
+    padding: .1em 0 .1em 0;
+}

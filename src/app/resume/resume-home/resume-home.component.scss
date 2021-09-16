@@ -1,0 +1,9 @@
+@import '../../../property.scss';
+ 
+div.col-md-12.text-center> h1{
+    color:$text-blue;
+
+} 
+mat-card{
+    background-color: $main-lg-in-color !important;
+}

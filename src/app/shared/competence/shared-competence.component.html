@@ -1,0 +1,86 @@
+
+<form [formGroup]="form_step_one"> 
+  <div class="example-box" role="listitem" color="primary" formArrayName="listCompetenceGroup"
+  *ngFor="let x of listCompetenceGroup.controls; let i = index">
+  <ng-container class="row" [formGroupName]="i">
+  
+      <div class="form-row form-group competence ml-1 mr-1">
+          <div class="col-md-12 text-right"><mat-icon (click)="removeCompetence(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+       
+              
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Libellé</mat-label>
+              <input type="text" matInput id="libelle" name="libelle" formControlName="libelle" >
+              
+            </mat-form-field>
+
+            <div class="col-md-12">
+              <div class="row">
+                <legend style="padding: 1.09rem;">Nombre d'année</legend>
+                <div class="col-md-3 pl-0 pr-0">
+                  <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                    <mat-label>Année</mat-label>
+                  <input type="number" matInput id="annee" name="annee" formControlName="annee" min="0" >
+                    
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3 pl-0 ">
+                  <mat-form-field appearance="outline" class="example-full-width col-md-12 pl-0 pr-0">
+                    <mat-label>Mois</mat-label>
+
+                  <mat-select name="mois" formControlName="mois"
+                   >
+                  <mat-option *ngFor="let option of listMois"
+                      [value]="option">
+                      {{option}}
+                  </mat-option>
+                  </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3 pl-0 ">
+                  <mat-form-field appearance="outline" class="example-full-width col-md-12 pl-0 pr-0">
+                    <mat-label>Semaine</mat-label>
+
+                  <mat-select name="semaine" formControlName="semaine"
+                  >
+                  <mat-option *ngFor="let option of listSemaine"
+                      [value]="option">
+                      {{option}}
+                  </mat-option>
+                  </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3 pl-0 ">
+                  <mat-form-field appearance="outline" class="example-full-width col-md-12 pl-0 pr-0">
+                    <mat-label>Jour</mat-label>
+
+                  <mat-select name="jour" formControlName="jour"
+                    >
+                  <mat-option *ngFor="let option of listJour"
+                      [value]="option">
+                      {{option}}
+                  </mat-option>
+                  </mat-select>
+                  </mat-form-field>
+                    
+                </div>
+              </div>
+            </div>
+    
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Echelle</mat-label>
+            <input type="number" matInput id="echelle" name="echelle" formControlName="echelle" min="0" max="5" >
+              
+            </mat-form-field>
+        
+
+
+
+     
+          <div class="col-md-12 text-right"><mat-icon (click)="removeCompetence(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+  
+      </div>
+  </ng-container>
+  </div>
+  
+</form>

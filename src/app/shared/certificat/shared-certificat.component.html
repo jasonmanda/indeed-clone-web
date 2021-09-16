@@ -1,0 +1,79 @@
+
+<form [formGroup]="form_step_one">
+  <div class="example-box" role="listitem" color="primary" formArrayName="listCertificatGroup"
+  *ngFor="let x of listCertificatGroup.controls; let i = index"> 
+  <ng-container class="row" [formGroupName]="i">
+  
+      <div class="form-row form-group certificat ml-1 mr-1">
+          <div class="col-md-12 text-right"><mat-icon (click)="removeCertificat(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+          <mat-form-field class="example-full-width col-md-6" appearance="outline"> 
+            <mat-label>Choisir la date de début</mat-label>
+              <input matInput name="certificat_deb" class="text-bold"  [max]="maxDate"  (click)="bindCertificatPicker.open()"  formControlName="certificat_deb"  [matDatepicker]="bindCertificatPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindCertificatPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindCertificatPicker 
+                      startView="multi-year"
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+          
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width col-md-6" appearance="outline"> 
+                <mat-label>Choisir la date de fin</mat-label>
+              <input matInput name="certificat_fin" class="text-bold"   [max]="maxDate"  (click)="bindCertificatFinPicker.open()"  formControlName="certificat_fin"  [matDatepicker]="bindCertificatFinPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindCertificatFinPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindCertificatFinPicker 
+                      startView="multi-year" 
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+             
+            </mat-form-field>
+              
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Titre certificat</mat-label>
+              <input type="text" matInput id="titre_certificat" name="titre_certificat" formControlName="titre_certificat" >
+              
+            </mat-form-field>
+  
+    
+  
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Description</mat-label>
+              <textarea rows="5" matInput id="description" name="description" formControlName="description"
+                  
+                  >
+                  </textarea>
+           
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Identifiant certificat</mat-label>
+            <input type="text" matInput id="uid_certificat" name="uid_certificat" formControlName="uid_certificat" >
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Url certificat</mat-label>
+            <input type="text" matInput id="url_certificat" name="url_certificat" formControlName="url_certificat" >
+           <mat-icon matSuffix>language</mat-icon>
+          </mat-form-field>
+
+
+              <input type="file"  name="fichier" style="display: none;" (change)="importCertificatFile($event,i)"  #bindFichier formControlName="fichier" accept=".pdf" id="fichier">
+
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Attacher un fichier</mat-label>
+            <input type="text"  id="fichier_label" name="fichier_label" formControlName="fichier_label" matInput readonly>
+           
+            <div matSuffix style="display: flex;">
+              <button type="button" mat-icon-button  matTooltip="Attacher un fichier"  (click)="bindFichier.click()">
+                <mat-icon  >attach_file</mat-icon>
+              </button><button type="button" mat-icon-button  matTooltip="Voir le document"  (click)="readCertificatDocument(i)">
+                <mat-icon  >visibility</mat-icon>
+              </button><button type="button" mat-icon-button  matTooltip="Retirer document" (click)="removeCertificatDocument(i)">
+                <mat-icon   color="warn">close</mat-icon>
+              </button></div>
+           
+          </mat-form-field>
+          <div class="col-md-12 text-right"><mat-icon (click)="removeCertificat(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+  
+      </div>
+  </ng-container>
+  </div>
+  
+</form>

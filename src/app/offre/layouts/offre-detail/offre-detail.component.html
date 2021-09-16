@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Information offre</h2>
+<mat-dialog-content>
+  <form method="POST" enctype="multipart/form-data"   class="mt-2">
+    <app-offre-step-finish [opt]="'entreprise'" [is_recap]="false" [cab_recrutement]="current_user_offre.cab_recrutement" 
+    [nom_ent]="current_user_offre.nom_ent" [poste]="current_user_offre.poste" [localite]="current_user_offre.localite.nom_ville" 
+    [taille]="current_user_offre.taille" [type_emp]="current_user_offre.type_emp"
+    [type_contrat]="current_user_offre.type_contrat" [salaire]="current_user_offre.salaire" 
+    [salaire_type]="current_user_offre.salaire_type" [salaire_min]="current_user_offre.salaire_min" [salaire_max]="current_user_offre.salaire_max" [salaire_model]="current_user_offre.salaire_model"
+    [no_salaire]="current_user_offre.no_salaire" [avantages]="toArrayPipe.transform(current_user_offre.avantages)" [cv_require]="current_user_offre.cv_require" [test_compet]="current_user_offre.test_compet" [description]="current_user_offre.description" [date_limit]="current_user_offre.date_limit"
+    [date_debut]="current_user_offre.date_debut" [date_immediat]="current_user_offre.date_immediat"></app-offre-step-finish>
+    <div class="form-row form-group" *ngIf="option=='PRO_RETENUE'&& (message!=null && message!=undefined)">
+      <label class="pl-2 pr-2 col-12" style="font-size: 17px;">Message: <span><b>{{message}}</b></span> </label>
+     </div>
+ 
+          <div class="justify-content-center text-center mt-2 mb-2" *ngIf="option=='ENT'">
+            <app-shared-spinner [progress_upload_real]="progress_upload_real"></app-shared-spinner>  
+             <a mat-button mat-raised-button color="primary" (click)="close('close')" [routerLink]="base_link+'/mes_offres/'+current_user_offre.id_offre+'/detail'">{{nb_depot}} Dépôt(s)</a>
+            </div>
+      </form>
+</mat-dialog-content> 
+<mat-dialog-actions class="justify-content-center">
+
+    <button mat-raised-button mat-button color="warn" (click)="close('close')"
+      ><mat-icon>close</mat-icon>Quitter</button>
+  </mat-dialog-actions>
+   

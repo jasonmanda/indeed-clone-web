@@ -1,0 +1,39 @@
+
+<form [formGroup]="form_step_one">
+  <div class="example-box" role="listitem" color="primary" formArrayName="listLangueGroup"
+  *ngFor="let x of listLangueGroup.controls; let i = index">
+  <ng-container class="row" [formGroupName]="i">
+  
+      <div class="form-row form-group langue ml-1 mr-1">
+          <div class="col-md-12 text-right"><mat-icon (click)="removeLangue(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+       
+              
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Libellé</mat-label>
+              <input type="text" matInput id="libelle" name="libelle" formControlName="libelle" >
+              
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Niveau de maitrise</mat-label>
+              <mat-select name="echelle" formControlName="echelle">
+                <mat-option value="debutant">Débutant</mat-option>
+                <mat-option value="intermediaire">Intermédiaire</mat-option>
+                <mat-option value="bon">Bon</mat-option>
+                <mat-option value="avance">Avancé</mat-option>
+                <mat-option value="natif">Natif</mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+
+
+
+     
+          <div class="col-md-12 text-right"><mat-icon (click)="removeLangue(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+  
+      </div>
+  </ng-container>
+  </div>
+  
+</form>

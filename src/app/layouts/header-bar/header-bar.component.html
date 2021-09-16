@@ -1,0 +1,17 @@
+
+<form class="form-inline"> 
+        <button  mat-mini-fab id="log-out-top" mat-icon-button [matMenuTriggerFor]="bindAppMenu" style="background:transparent !important;">
+         
+ 
+                    <img alt="user" class="profile-pic"  src="{{profile_img_path}}"> 
+                     
+        </button>
+        <mat-menu #bindAppMenu="matMenu"  [overlapTrigger]="false">
+                <!-- <button mat-menu-item> <mat-icon >settings</mat-icon>Paramètre</button> -->
+                <a mat-menu-item [routerLink]="base_link+'/parametre'"><mat-icon >settings</mat-icon>Paramètre</a>
+                <a mat-menu-item *ngIf="publishResumeBlock" [routerLink]="base_link+'/favoris'"> <mat-icon >favorite</mat-icon>Favori(s)</a>
+                <a mat-menu-item *ngIf="publishResumeBlock" [routerLink]="base_link+'/soumission'"> <mat-icon >send</mat-icon>Soumission(s)</a>
+        
+                <button mat-menu-item (click)="logOut();"><mat-icon >exit_to_app</mat-icon>Se déconnecter</button>
+              </mat-menu>
+  </form> 

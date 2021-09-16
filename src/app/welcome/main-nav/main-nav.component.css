@@ -1,0 +1,24 @@
+mat-toolbar > header > nav > div.pull-right > * {
+  color: #000;
+  font-size: 0.875rem;
+}
+mat-toolbar > header > nav > div.pull-left > * {
+  color: #2164f3;
+  font-size: 0.875rem;
+}
+mat-toolbar > header > nav > div.pull-right > .fw-normal {
+  color: #000;
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+mat-toolbar > header > nav > div.pull-right > * {
+  color: #000;
+  font-size: 0.875rem;
+}
+mat-toolbar > header > nav > div.pull-right > .connexion {
+  color: #1c56ac;
+  font-size: 0.875rem;
+}
+mat-toolbar > header > nav > div.pull-right > app-header-bar {
+  display: inline-flex;
+}

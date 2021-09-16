@@ -1,0 +1,72 @@
+
+<form [formGroup]="form_step_one">
+  <div class="example-box" role="listitem" color="primary" formArrayName="listFormationGroup"
+  *ngFor="let x of listFormationGroup.controls; let i = index">
+  <ng-container class="row" [formGroupName]="i">
+  
+      <div class="form-row form-group formation ml-1 mr-1">
+          <div class="col-md-12 text-right"><mat-icon (click)="removeFormation(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+          <mat-form-field class="example-full-width col-md-6" appearance="outline"> 
+            <mat-label>Choisir la date de début</mat-label>
+              <input matInput name="formation_deb" class="text-bold"  [max]="maxDate"  (click)="bindFormationPicker.open()"  formControlName="formation_deb"  [matDatepicker]="bindFormationPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindFormationPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindFormationPicker 
+                      startView="multi-year"
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+         
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width col-md-6" appearance="outline"> 
+              <mat-label>Choisir la date de fin</mat-label>
+              <input matInput name="formation_fin" class="text-bold"   [max]="maxDate"  (click)="bindFormationFinPicker.open()"  formControlName="formation_fin"  [matDatepicker]="bindFormationFinPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindFormationFinPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindFormationFinPicker 
+                      startView="multi-year" 
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+          
+            </mat-form-field>
+              
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                <mat-label>Titre diplôme</mat-label>
+              <input type="text" matInput id="titre_formation" name="titre_formation" formControlName="titre_formation" >
+              
+            </mat-form-field>
+  
+    
+  
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Description</mat-label>
+              <textarea rows="5" matInput id="description" name="description" formControlName="description"
+                  >
+                  </textarea>
+           
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Choisir niveau étude</mat-label>
+            <mat-select formControlName="niveau_etude">
+              <mat-option *ngFor="let option of listNivEtude" [value]='option.key'>{{option.value}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+              <input type="file"  name="fichier" style="display: none;" (change)="importFormationFile($event,i)"  #bindFichier formControlName="fichier" accept=".pdf" id="fichier">
+
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Attacher un fichier</mat-label>
+            <input type="text"  id="fichier_label" name="fichier_label" formControlName="fichier_label" matInput readonly>
+           
+            <div matSuffix style="display: flex;">
+              <button type="button" mat-icon-button  matTooltip="Attacher un fichier"  (click)="bindFichier.click()">
+                <mat-icon  >attach_file</mat-icon>
+              </button><button type="button" mat-icon-button  matTooltip="Voir le document"  (click)="readFormationDocument(i)">
+                <mat-icon  >visibility</mat-icon>
+              </button><button type="button" mat-icon-button  matTooltip="Retirer document" (click)="removeFormationDocument(i)">
+                <mat-icon   color="warn">close</mat-icon>
+              </button></div>
+           
+          </mat-form-field>
+          <div class="col-md-12 text-right"><mat-icon (click)="removeFormation(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+  
+      </div>
+  </ng-container>
+  </div>
+  
+</form>

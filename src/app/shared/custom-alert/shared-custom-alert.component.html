@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{header}}</h2>
+ 
+<mat-dialog-content>
+ 
+ <p #viewMessage></p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="justify-content-center">
+  <button mat-raised-button mat-button color="primary" (click)="close('oui')" [hidden]="yes">OUI</button>
+  <button mat-raised-button mat-button color="primary" (click)="close('ok')" [hidden]="ok" >OK</button>
+  <button mat-raised-button mat-button color="warn" (click)="close('non')" [hidden]="no">NON</button>
+</mat-dialog-actions>

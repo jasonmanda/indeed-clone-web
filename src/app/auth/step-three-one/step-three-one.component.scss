@@ -1,0 +1,35 @@
+@import '../../../property.scss';
+.oeil{
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 22px;
+    cursor: pointer;
+}
+ 
+ 
+form .inscription-card-header{
+    font-size: 1.4375rem;
+    letter-spacing: -.1px;
+    font-weight: 700;
+    line-height: 1.22;
+    margin-bottom: 1.5rem;
+}
+form a:visited {
+    color: $visited-link;
+}
+form a:visited {
+    text-decoration: underline;
+}
+footer{
+    color:$text-black;
+    font-size: $font-size;
+    font-weight: normal; 
+}
+ 
+ 
+form fieldset{
+    padding:4px;
+    border: 1px #cacaca solid;
+    border-radius: 0.43rem;
+}

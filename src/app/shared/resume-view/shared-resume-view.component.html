@@ -1,0 +1,146 @@
+<div *ngIf="current_user_document==null || current_user_document==undefined">
+    <app-shared-spinner [progress_upload_real]="false"></app-shared-spinner>
+</div>
+<div class="container" *ngIf="current_user_document!=null && current_user_document!=undefined">
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+            <span class="resume-shared-view-header">Information personnelle</span>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Nom: <span><b>{{current_user_document.cv.personne.nom_personne}}</b></span> </label>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Prénom: <span><b>{{current_user_document.cv.personne.prenom_personne}}</b></span> </label>
+        </div>
+    </fieldset>
+
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+            <span class="resume-shared-view-header">Localisation</span>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Ville de résidence: <span><b>{{current_user_document.cv.personne.ville.nom_ville}}</b></span> </label>
+        </div>
+    </fieldset>
+   
+
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+            <span class="resume-shared-view-header">A propos</span>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Description: <span><b>{{current_user_document.cv.description}}</b></span> </label>
+        </div>
+    </fieldset>
+
+
+    
+
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+                <span class="resume-shared-view-header">Expérience professionnelle</span>
+            </div>
+
+            <div class="form-row form-group exp-pro ml-1 mr-1" *ngFor="let x of current_user_document.exp_pro">
+                <div class="col-md-6"><label class="pl-2 pr-2 col-12">Date de début: <span><b>{{x.debut| date:'dd MM yyyy'}}</b></span> </label></div>
+                <div class="col-md-6"><label class="pl-2 pr-2 col-12">Date de fin: <span><b>{{x.fin| date:'dd MM yyyy'}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Nom de la société: <span><b>{{x.nom_soc}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Ville de résidence: <span><b>{{x.ville.nom_ville}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Poste: <span><b>{{x.poste}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Description: <span><b>{{x.description}}</b></span> </label></div>
+            </div>
+    </fieldset>   
+    
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+                <span class="resume-shared-view-header">Formation</span>
+            </div>
+
+            <div class="form-row form-group formation ml-1 mr-1" *ngFor="let x of current_user_document.exp_pro">
+                <div class="col-md-6"><label class="pl-2 pr-2 col-12">Date de début: <span><b>{{x.debut| date:'dd MM yyyy'}}</b></span> </label></div>
+                <div class="col-md-6"><label class="pl-2 pr-2 col-12">Date de fin: <span><b>{{x.fin| date:'dd MM yyyy'}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Titre diplôme: <span><b>{{x.nom_soc}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Description: <span><b>{{x.description}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Niveau étude: <span><b>{{listNivEtude[x.niveau_etude]}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Document: <span><b><mat-icon (click)="showDocument(x.document)" style="cursor: pointer;">visibility</mat-icon></b></span> </label></div>
+            </div>
+    </fieldset>  
+    
+    
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+                <span class="resume-shared-view-header">Certificat</span>
+            </div>
+
+            <div class="form-row form-group certificat ml-1 mr-1" *ngFor="let x of current_user_document.exp_pro">
+                <div class="col-md-6"><label class="pl-2 pr-2 col-12">Date de début: <span><b>{{x.debut| date:'dd MM yyyy'}}</b></span> </label></div>
+                <div class="col-md-6"><label class="pl-2 pr-2 col-12">Date de fin: <span><b>{{x.fin| date:'dd MM yyyy'}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Titre certificat: <span><b>{{x.titre_certificat}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Description: <span><b>{{x.description}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Identifiant certificat: <span><b>{{x.uid_certificat}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Url certificat: <span><b>{{x.url_certificat}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Document: <span><b><mat-icon (click)="showDocument(x.document)" style="cursor: pointer;">visibility</mat-icon></b></span> </label></div>
+            </div>
+    </fieldset>  
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+            <span class="resume-shared-view-header">Contact</span>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Numéro: <span><b>{{current_user_document.cv.contact.numero}}</b></span> </label>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Email: <span><b>{{current_user_document.cv.contact.mail}}</b></span> </label>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Site web: <span><b>{{current_user_document.cv.contact.website}}</b></span> </label>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Facebook: <span><b>{{current_user_document.cv.contact.facebook}}</b></span> </label>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Linkedin: <span><b>{{current_user_document.cv.contact.linkedin}}</b></span> </label>
+        </div>
+        <div class="form-row form-group">
+            <label class="pl-2 pr-2 col-12">Twitter: <span><b>{{current_user_document.cv.contact.twitter}}</b></span> </label>
+        </div>
+    </fieldset>
+
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+                <span class="resume-shared-view-header">Compétence</span>
+            </div>
+
+            <div class="form-row form-group competence ml-1 mr-1" *ngFor="let x of current_user_document.competence">
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Libellé: <span><b>{{x.libelle}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Année: <span><b>{{x.annee+' an(s) '+x.mois+' mois '+x.semaine+' semaine(s) '+x.jour+' jour(s)'}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Echelle: <span><b>{{x.echelle}}/5</b></span> </label></div>
+            </div>
+    </fieldset>   
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+                <span class="resume-shared-view-header">Langue</span>
+            </div>
+
+            <div class="form-row form-group langue ml-1 mr-1" *ngFor="let x of current_user_document.langue">
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Libellé: <span><b>{{x.libelle}}</b></span> </label></div>
+                <div class="col-md-12"><label class="pl-2 pr-2 col-12">Niveau maîtrise: <span><b>{{x.echelle=='debutant'? 'Débutant':( x.echelle=='intermediaire'?'Intermédiaire':( x.echelle=='bon'?'Bon':( x.echelle=='avance'?'Avancée':( x.echelle=='natif'?'Natif':'Aucun' ) ) ) )}}</b></span> </label></div>
+            </div>
+        </fieldset> 
+    <fieldset class="mb-2">
+        <div class="form-group form-row justify-content-center">
+                <span class="resume-shared-view-header">Autre</span>
+            </div>
+            <div class="form-row form-group">
+                <label class="pl-2 pr-2 col-12">Salaire min: <span><b>{{current_user_document.cv.pret_salary_min| number:'':'fr-FR'}} XOF</b></span> </label>
+            </div>
+            <div class="form-row form-group">
+                <label class="pl-2 pr-2 col-12">Salaire max: <span><b>{{current_user_document.cv.pret_salary_max| number:'':'fr-FR'}} XOF</b></span> </label>
+            </div>
+            <div class="form-row form-group">
+                <label class="pl-2 pr-2 col-12">Cv: <span><b><mat-icon (click)="readDocument()" style="cursor: pointer;">visibility</mat-icon></b></span> </label>
+            </div>
+         
+        </fieldset> 
+
+</div>

@@ -1,0 +1,86 @@
+<main>
+  <div class="container-fluid" [formGroup]="form_step_one">
+
+    <div class="row">
+      <div class="col-md-12 text-left">
+      <a [routerLink]="offres" mat-button mat-raised-button color="primary">Mes offres</a>
+
+      </div>
+      <div class="col-md-4 mx-auto mb-5">
+      
+        <mat-card class="p-2 mb-4">
+          <div class="row">
+            <div class="col-md-6 text-left text-bold text-uppercase">
+              <span>Votre Offre d'emploi </span>
+            </div>
+            <div class="col-md-6 text-right text-bold">
+              <span>Etape {{index}} sur 3</span>
+
+            </div>
+            <div class="col-12 mt-3 text-left text-bold">
+              <span style="font-size: 29px;">{{index!=3?"Profil Recruteur":(is_add_update?"Créer offre":"Modification offre")}}</span>
+            </div>
+          </div>
+
+        </mat-card>
+        <mat-card class="p-4 mb-4" *ngIf="index==1">
+          <!-- <mat-checkbox [(ngModel)]="test">test</mat-checkbox> -->
+
+          <app-offre-step-one [form_step_one]="form_step_one" [nom_ent]="nom_ent" [cab_recrutement]="cab_recrutement"
+            [poste]="poste" [where]="where" [filteredOptions]="filteredOptions" [listVilles]="listVilles"
+            [progress_upload]="progress_upload" [progress_upload_real]="progress_upload_real"></app-offre-step-one>
+
+
+        </mat-card>
+        <mat-card class="p-4 mb-4" *ngIf="index==1 && cab_recrutement.value">
+          <app-offre-step-two [form_step_one]="form_step_one" [taille]="taille" [size]="size"></app-offre-step-two>
+        </mat-card>
+        <div class="mb-4" *ngIf="index==2">
+          <app-offre-step-three [form_step_one]="form_step_one" [type_contrat]="type_contrat" [type_emp]="type_emp"
+            [salaire]="salaire" [salaire_type]="salaire_type" [salaire_min]="salaire_min" [salaire_max]="salaire_max"
+            [salaire_model]="salaire_model" [no_salaire]="no_salaire" [avantages]="avantages" [cv_require]="cv_require"
+            [test_compet]="test_compet" [date_limit]="date_limit" [date_debut]="date_debut" [description]="description" [date_immediat]="date_immediat">
+          </app-offre-step-three>
+        </div>
+        <mat-card class="p-4 mb-4" *ngIf="index==3">
+          <app-offre-step-finish [opt]="null" [is_recap]="true" [cab_recrutement]="cab_recrutement.value" [nom_ent]="nom_ent.value" [poste]="poste.value" [localite]="where.value" [taille]="taille.value" [type_emp]="type_emp.value"
+            [type_contrat]="type_contrat.value" [salaire]="salaire.value" [salaire_type]="salaire_type.value" [salaire_min]="salaire_min.value" [salaire_max]="salaire_max.value" [salaire_model]="salaire_model.value"
+            [no_salaire]="no_salaire.value" [avantages]="avantages.value" [cv_require]="cv_require.value" [test_compet]="test_compet.value" [description]="description.value" [date_limit]="date_limit.value"
+            [date_debut]="date_debut.value" [date_immediat]="date_immediat.value"></app-offre-step-finish>
+
+        </mat-card>
+
+        <mat-card class="p-4">
+          <div class="row">
+            <div class="text-left col-md-6"><button mat-button mat-raised-button *ngIf="back!=''"
+                (click)="decre()">{{back=='back'?'Retour':""}}</button></div>
+            <div class="text-right col-md-6"><button mat-button mat-raised-button color="primary"
+                (click)="incre()" [disabled]="hold">{{continue=='continue'?'Continue':"Terminez"}}</button></div>
+          </div>
+        </mat-card>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 
+
+  <mat-card class="alternate-theme">
+    Alternate Theme:
+    <button mat-raised-button color="primary">
+      Primary
+    </button>
+    <button mat-raised-button color="accent">
+      Accent
+    </button>
+    <button mat-raised-button color="warn">
+      Warning
+    </button>
+  </mat-card> -->
+</main>
+
+<footer class="docs-footer mt-1">
+  <router-outlet name="footer"></router-outlet>
+  <!-- <app-footer-bar></app-footer-bar> -->
+</footer>

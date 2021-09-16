@@ -1,0 +1,42 @@
+@import '../../../property.scss';
+mat-toolbar>header>nav>div.pull-right>*{
+    color:$text-black;
+    font-size: $font-size;
+}
+ 
+mat-toolbar>header>nav>div.pull-left>*{
+    color:$text-blue;
+    font-size: $font-size;
+}
+
+mat-toolbar>header>nav>div.pull-right>.fw-normal{
+    color:$text-black;
+    font-size: $font-size;
+    font-weight: normal;
+}
+mat-toolbar>header>nav>div.pull-right>*{
+    color:$text-black;
+    font-size: $font-size;
+    
+}
+mat-toolbar>header>nav>div.pull-right>.connexion{
+    color:$connexion-color;
+    font-size: $font-size;
+    
+}
+
+mat-toolbar>header>nav>div.pull-right>app-header-bar{
+    display: $inline-flex;
+}
+
+footer{
+    color:$text-black;
+    font-size: $font-size;
+    font-weight: normal; 
+}
+main{
+    color:$text-black;
+    font-size: $font-size;
+    font-weight: normal; 
+}
+ 

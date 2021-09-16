@@ -1,0 +1,122 @@
+
+
+[région]
+Dakar, Sénégal
+Diourbel, Sénégal
+Fatick, Sénégal
+Kaffrine, Sénégal
+Kaolack, Sénégal
+Kédougou, Sénégal
+Kolda, Sénégal
+Louga, Sénégal
+Matam, Sénégal
+Saint-Louis, Sénégal
+Sédhiou, Sénégal
+Tambacounda, Sénégal
+Thiès, Sénégal
+Ziguinchor, Sénégal
+
+[ départements]
+ Bakel, Sénégal
+ Bambey, Sénégal
+ Bignona, Sénégal
+ Birkelane, Sénégal
+ Bounkiling, Sénégal
+ Dagana, Sénégal
+ Dakar, Sénégal
+ Diourbel, Sénégal
+ Fatick, Sénégal
+ Foundiougne, Sénégal
+ Gossas, Sénégal
+ Goudiry, Sénégal
+ Goudomp, Sénégal
+ Guédiawaye, Sénégal
+ Guinguinéo, Sénégal
+ Kaffrine, Sénégal
+ Kanel, Sénégal
+ Kaolack, Sénégal
+ Kébémer, Sénégal
+ Kédougou, Sénégal
+ Kolda, Sénégal
+ Koumpentoum, Sénégal
+ Koungheul, Sénégal
+ Linguère, Sénégal
+ Louga, Sénégal
+ M'bour, Sénégal
+ Malem-Hodar, Sénégal
+ Matam, Sénégal
+ Mbacké, Sénégal
+ Médina Yoro Foulah, Sénégal
+ Nioro du Rip, Sénégal
+ Oussouye, Sénégal
+ Pikine, Sénégal
+ Podor, Sénégal
+ Ranérou, Sénégal
+ Rufisque, Sénégal
+ Saint-Louis, Sénégal
+ Salemata, Sénégal
+ Saraya, Sénégal
+ Sédhiou, Sénégal
+ Tambacounda, Sénégal
+ Thiès, Sénégal
+ Tivaouane, Sénégal
+ Vélingara, Sénégal
+ Ziguinchor, Sénégal
+
+[villes]
+Dakar, Sénégal
+Pikine, Sénégal
+Touba, Sénégal
+Guédiawaye, Sénégal
+Thiès, Sénégal
+Kaolack, Sénégal
+Mbour, Sénégal
+Saint-Louis, Sénégal
+Rufisque, Sénégal
+Ziguinchor, Sénégal
+Diourbel, Sénégal
+Louga, Sénégal
+Tambacounda, Sénégal
+Mbacké, Sénégal
+Kolda, Sénégal
+Richard-Toll, Sénégal
+Bargny, Sénégal
+Tivaouane, Sénégal
+Joal-Fadiouth, Sénégal
+Dahra, Sénégal
+Kaffrine, Sénégal
+Bignona, Sénégal
+Fatick, Sénégal
+Vélingara, Sénégal
+Bambey, Sénégal
+Sébikhotane, Sénégal
+Dagana, Sénégal
+Sédhiou, Sénégal
+Nguékhokh, Sénégal
+Diawara, Sénégal
+Kédougou, Sénégal
+Pout, Sénégal
+Kayar, Sénégal
+Matam, Sénégal
+Meckhe, Sénégal
+Nioro du Rip, Sénégal
+Ourossogui, Sénégal
+Kébémer, Sénégal
+Ndioum, Sénégal
+Koungheul, Sénégal
+Guinguinéo, Sénégal
+Linguère, Sénégal
+Khombole, Sénégal
+Bakel, Sénégal
+Sokone, Sénégal
+Diamniadio, Sénégal
+Mboro, Sénégal
+Thiadiaye, Sénégal
+Goudomp, Sénégal
+Podor, Sénégal
+Gossas, Sénégal
+Kanel, Sénégal
+Rosso, Sénégal
+Ndoffane, Sénégal
+Gandiaye, Sénégal
+

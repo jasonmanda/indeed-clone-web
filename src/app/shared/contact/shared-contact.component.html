@@ -1,0 +1,59 @@
+<form [formGroup]="form_step_one">
+ 
+  <div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+          <mat-label>Numéro</mat-label>
+        <input type="text" matInput id="numero"  name="numero" formControlName="numero">
+   
+          
+          <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+  </div>
+  
+<div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Mail</mat-label>
+        <input type="email" matInput id="mail" name="mail" formControlName="mail" >
+  
+          <mat-icon matSuffix>mail</mat-icon>
+      </mat-form-field>
+  </div>
+
+<div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Lien du site web</mat-label>
+        <input type="text" matInput id="website" name="website" formControlName="website" >
+    
+          <mat-icon matSuffix>language</mat-icon>
+      </mat-form-field>
+  </div>
+ 
+<div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Lien facebook</mat-label>
+        <input type="text" matInput id="facebook" name="facebook" formControlName="facebook">
+ 
+          <mat-icon matSuffix svgIcon="facebook"></mat-icon>
+      </mat-form-field>
+</div>
+
+<div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+          <mat-label>Lien Linkedin</mat-label>
+        <input type="text" matInput id="linkedin" name="linkedin" formControlName="linkedin" >
+ 
+          <mat-icon matSuffix svgIcon="linkedin"></mat-icon>
+      </mat-form-field>
+  </div>
+
+<div class="form-row form-group">
+
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+        <mat-label>Lien Twitter</mat-label>
+        <input type="text" matInput id="twitter" name="twitter" formControlName="twitter">
+ 
+          <mat-icon matSuffix svgIcon="twitter"></mat-icon>
+      </mat-form-field>
+
+  </div>
+</form>

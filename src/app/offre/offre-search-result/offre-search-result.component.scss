@@ -1,0 +1,76 @@
+@import '../../../property.scss';
+
+mat-card-title span{
+    display: $flex;
+    font-size: $fsp-16;
+    color:$sth-color;
+
+ }
+mat-card-content span{
+    display: $flex;
+    font-size: $fsp-16;
+    color:$sth-color;
+
+ }
+ mat-card-title a{
+    color:black;
+ 
+  } mat-card-title a:hover{
+    color:black;
+ 
+  }
+ mat-card-title label:hover{
+     cursor: pointer;
+    text-decoration:underline;
+    
+ }
+
+ mat-card-title mat-icon:hover{
+    cursor: pointer;
+    color:$sth-color;
+ }
+ mat-card-title mat-icon{
+    cursor: pointer;
+    color:$sth-color;
+ }
+ mat-card>mat-card-content{
+    overflow-wrap: anywhere;
+}
+mat-card>mat-card-content>p{ 
+    color:$sth-color;
+}
+footer{
+    color:$text-black;
+    font-size: $font-size;
+    font-weight: normal; 
+}
+div.more>mat-card{
+    min-height: 150px;
+    padding:0px 0px;
+}
+div.more>mat-card>mat-card-title{
+    min-height: 73px;
+    padding:16px 16px 0px 16px;
+  
+    border-bottom: 1px solid $sth-color;
+}
+div.more>mat-card>mat-card-content{
+    min-height: 80px;
+    padding:16px 16px 0px 16px;
+ 
+}
+@media screen and (min-width:768px){
+    main{
+        padding-top:1%;
+    }
+  
+}
+
+@media screen and (max-width:767px){
+    main {
+        padding-top: 5%;
+    }
+    .more{
+     display: none !important;
+    }
+}

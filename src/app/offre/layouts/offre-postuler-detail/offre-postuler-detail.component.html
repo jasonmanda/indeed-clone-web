@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Information candidat</h2>
+<mat-dialog-content>
+  <form method="POST" enctype="multipart/form-data"   class="mt-2">
+ 
+          <div class="justify-content-center text-center mt-2 mb-2">
+            <app-shared-spinner [progress_upload_real]="progress_upload_real" class="mt-2 mb-2"></app-shared-spinner>  
+              <app-shared-resume-view [current_user_document]="current_user_document"></app-shared-resume-view>
+            </div>
+      </form>
+</mat-dialog-content> 
+<mat-dialog-actions class="justify-content-center">
+
+    <button mat-raised-button mat-button color="warn" (click)="close('close')"
+      ><mat-icon>close</mat-icon>Quitter</button>
+  </mat-dialog-actions>
+   

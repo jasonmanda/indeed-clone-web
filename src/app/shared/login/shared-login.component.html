@@ -1,0 +1,60 @@
+<div [formGroup]="form_step_one">
+ 
+
+  <div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Email</mat-label>
+        <input type="text" matInput id="email" name="email" formControlName="email">
+ 
+      </mat-form-field>
+  
+  </div>
+  <div class="form-row form-group" *ngIf="type=='add'||type=='login'">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12" >
+        <mat-label>Mot de passe</mat-label>
+        <input id="password"  name="password"  formControlName="password" matInput [type]="hide ? 'password' : 'text'"/>
+  
+   
+        <button type="button"  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+      </mat-form-field>
+  </div>
+
+  <div class="form-row form-group" *ngIf="type=='edit'">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12" >
+        <mat-label>L'ancien mot de passe</mat-label>
+        <input id="oldPassword"  name="oldPassword"  formControlName="oldPassword" matInput [type]="hide1 ? 'password' : 'text'"/>
+  
+ 
+        <button type="button"  mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide oldPassword'" [attr.aria-pressed]="hide1">
+            <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+      </mat-form-field>
+  </div>
+
+  <div class="form-row form-group" *ngIf="type=='edit'">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12" >
+        <mat-label>Nouveau mot de passe</mat-label>
+        <input id="password"  name="password"  formControlName="password"  matInput [type]="hide2 ? 'password' : 'text'"/>
+ 
+        <button type="button"  mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+            <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+      </mat-form-field>
+  </div>
+
+  <div class="form-row form-group" *ngIf="type=='edit'">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12" >
+        <mat-label>Confirmer mot de passe</mat-label>
+        <input id="confirmPassword"  name="confirmPassword"  formControlName="confirmPassword" matInput [type]="hide ? 'password' : 'text'"/>
+ 
+        <button type="button"  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide confirmPassword'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+      </mat-form-field>
+  </div>
+  
+   
+     
+    </div>

@@ -1,0 +1,25 @@
+<form [formGroup]="form" >
+
+  <div class="form-group text-center form-row justify-content-center">
+    <span class="inscription-card-header">{{data_type=='add'?'Créer un compte gratuitement':'Modifier compte'}}</span>
+  </div>
+
+  <app-shared-login [form_step_one]="form" [email]="email" [password]="password" [oldPassword]="oldPassword" [confirmPassword]="confirmPassword" [type]="data_type"></app-shared-login>
+  
+  <div class="form-row form-group">
+ 
+
+    <mat-checkbox class="text-left" *ngIf="data_type=='add'" color="primary" id="remember" name="remember" formControlName="remember">Se souvenir
+      de moi</mat-checkbox>
+ 
+
+  </div>
+
+  <div class="form-group text-center">
+
+    <button [disabled]="form.invalid"  mat-raised-button mat-button color="primary" (click)="onSubmit(form.value)"><mat-icon>{{data_type}}</mat-icon> {{data_type=='add'?'Créer un compte':'Modifier'}}</button>
+
+  </div>
+
+
+</form>

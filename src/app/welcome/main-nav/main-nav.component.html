@@ -1,0 +1,111 @@
+
+
+<div class="main-container">
+
+    <mat-toolbar   class="topbar" style="flex-direction: row; box-sizing: border-box; display: flex;">
+      <header style="width:100%">
+       <nav  class="navbar navbar-expand-lg navbar-light">
+  
+       <div class="col-md-3 pull-left">
+        <a class="navbar-brand" [routerLink]="base_link"   >
+          Kronos-Job
+          <!-- <b><img alt="homepage" class="dark-logo" src="assets/images/logo-icon.png">
+            <img alt="homepage" class="light-logo" src="assets/images/logo-light-icon.png">
+          </b> -->
+  
+          <!-- <span fxshow="false" fxshow.gt-xs="" style="display: block;">
+            <img alt="homepage" class="dark-logo" src="assets/images/logo-text.png">
+            <img alt="homepage" class="light-logo" src="assets/images/logo-light-text.png">
+          </span> -->
+  
+        </a>
+       </div>
+       <div class="col-md-9 pull-right text-right">
+        <a  *ngIf="publishResumeBlock" class="fw-normal navbar-brand" [routerLink]="cv_upload"   >
+          Télécharger votre CV
+          </a> 
+          <ng-container *ngIf="(authService.current_user==null||authService.current_user==undefined)">
+            <a class="navbar-brand connexion" routerLink="/login"   >
+              Connexion
+              </a>
+          </ng-container>
+          <ng-container *ngIf="(authService.current_user!=null && authService.current_user!=undefined)">
+            <a class="navbar-brand connexion" routerLink="/login" *ngIf="(authService.current_user.password!=null || authService.current_user.password!=undefined)">
+              Connexion
+              </a>
+          </ng-container>
+          <ng-container *ngIf="(authService.current_user!=null && authService.current_user!=undefined)">
+            <a class="navbar-brand connexion" [routerLink]="offres" *ngIf="(authService.current_user.password==null || authService.current_user.password==undefined)">
+              Mes offres
+              </a>
+          </ng-container>
+            <a *ngIf="publishEntAnnounceBlock||publishResumeBlock" class="fw-normal navbar-brand" [routerLink]="announce"   >
+              Entreprises / Publier une annonce
+              </a>
+
+              <span  style="flex: 1 1 0%; box-sizing: border-box;"></span>
+
+        <!-- <router-outlet name="header"></router-outlet> -->
+        <ng-container *ngIf="(authService.current_user!=null && authService.current_user!=undefined)">
+          <app-header-bar *ngIf="(authService.current_user.password==null || authService.current_user.password==undefined)"></app-header-bar>
+
+        </ng-container>             
+       </div> 
+  
+  
+  
+  
+      <!-- <button
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="bindDrawer.toggle()"
+      >
+    <!- - *ngIf="isHandset$ | async"  - ->
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button> -->
+  
+    <!-- <span  style="flex: 1 1 0%; box-sizing: border-box;"></span>
+  <router-outlet name="header"></router-outlet> -->
+  
+    <!-- <app-header-bar></app-header-bar> -->
+       </nav>
+  
+  
+  
+    </header>
+    </mat-toolbar>
+    <!-- sidenav-container -->
+  
+  <mat-sidenav-container class="example-sidenav-container" style="margin-top:0px">
+    <!-- sidenav -->
+  <mat-sidenav #bindDrawer  id="snav" class="" fixedInViewport="true"
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="!(isHandset$ | async)" >
+  
+ <!-- <router-outlet name="side-bar"></router-outlet>  -->
+<!-- <app-left-bar></app-left-bar>  -->
+  </mat-sidenav>
+  <!-- style="margin-left: 240px;" -->
+  <style>
+
+  </style>
+  <mat-sidenav-content class="page-wrapper" style="height: 100%;">
+    <main class="pl-0 pr-0 pt-0">
+  
+  
+  <router-outlet></router-outlet>
+     
+  
+  </main>
+  <footer class="docs-footer mt-1" >
+     <!-- <router-outlet name="footer"></router-outlet> -->
+    <app-footer-bar></app-footer-bar>
+  </footer>
+  </mat-sidenav-content>
+  
+  </mat-sidenav-container>
+  
+  </div>
+  

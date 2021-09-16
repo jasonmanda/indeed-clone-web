@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>{{mssg}}</h2>
+ 
+<mat-dialog-content [ngStyle]="{'height': '100%'}">
+      <img class="img-thumbnail mb-1 mx-auto" style="width: 600px;height: 600px;display: block;" [src]="url" *ngIf="type_file=='image'">
+      <embed *ngIf="type_file=='pdf'" style="width:100% !important;height:100% !important;overflow: hidden !important;" [src]="url" type="application/pdf" style="width:100%;height:100%;"/>
+      <embed *ngIf="(url1!=null && url1!=undefined) || type_file=='pdf'" style="width:100% !important;height:100% !important;overflow: hidden !important;" [src]="url1" type="application/pdf" style="width:100%;height:100%;"/>
+ 
+  <!-- <embed style="width:100% !important;height:100% !important;overflow: hidden !important;" [src]="url" type="application/pdf" style="width:100%;height:100%;"/> -->
+  <a [href]="url" #bindDownloadPdf download="{{url_title}}" target="_blank"></a>
+  <a [href]="url1" #bindDownloadPdf1 download="{{url_title1}}" target="_blank"></a>
+  <button mat-raised-button mat-button color="primary" (click)="action('url')" class="mr-1">Action 1</button>
+  <button *ngIf="url1!=null && url1!=undefined" mat-raised-button mat-button color="primary" (click)="action('url1')">Action 2</button>
+  </mat-dialog-content>
+<mat-dialog-actions class="justify-content-center">
+  <button mat-raised-button mat-button color="primary" (click)="close()">Ok</button>
+</mat-dialog-actions> 

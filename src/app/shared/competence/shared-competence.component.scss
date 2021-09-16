@@ -1,0 +1,11 @@
+@import '../../../property.scss';
+form .form-row.form-group.competence{
+    padding:4px;
+    border: 1px #cacaca solid;
+    border-radius: 0.43rem;
+} 
+
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: $connexion-color;
+    box-shadow: 0 0 0 0.1rem #1c56ac;
+  }

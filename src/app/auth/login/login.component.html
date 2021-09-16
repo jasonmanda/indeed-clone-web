@@ -1,0 +1,79 @@
+<main>
+    <div class="container-fluid">
+  
+      <div class="row">
+        <div class="col-12 text-center">
+          <span class="login-title">Kronos-Job</span>
+         </div>
+          <div class="col-md-4 mx-auto mb-5">
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        
+               
+  
+                <mat-card  class="p-4">
+                  <div class="form-group text-center form-row justify-content-center">
+                    <span class="connexion-card-header">Connexion</span>
+                  </div>
+                  
+                  <app-shared-login 
+                  [form_step_one]="form" [email]="email" [password]="password" [oldPassword]="oldPassword" [confirmPassword]="confirmPassword" [type]="'login'"
+                  ></app-shared-login>
+                     
+  <div class="form-row form-group">
+  
+  
+      <mat-checkbox class="text-left" color="primary" id="remember" name="remember" formControlName="remember">Se souvenir de moi</mat-checkbox>
+  
+  
+  </div>
+  
+  <div class="form-group text-center">
+  
+  <button [disabled]="form.invalid"  mat-raised-button mat-button color="primary">Connexion</button>
+  
+  </div>
+  
+   
+  <div class="form-row form-group" *ngIf="false">
+  <a href="" class="text-left">Mot de passe oublié</a>
+  </div>
+  
+  
+ 
+  <div class="form-row form-group justify-content-center">
+    <div class="col-12 text-center"><strong>Identifiant Super admin</strong>:dashing.jr@gmail.com</div> 
+    <div class="col-12 text-center"> <strong>Mot de passe</strong>:bonjourlemonde </div>
+  </div>
+                </mat-card> 
+          
+          
+              </form>
+        
+          </div>
+
+          <div class="col-12 text-center">
+            <a   routerLink="/subscribe" >Vous n’êtes pas encore membre ? Créez un compte gratuitement</a>
+          </div>
+      </div>
+  </div>
+   
+  <!-- 
+  
+    <mat-card class="alternate-theme">
+      Alternate Theme:
+      <button mat-raised-button color="primary">
+        Primary
+      </button>
+      <button mat-raised-button color="accent">
+        Accent
+      </button>
+      <button mat-raised-button color="warn">
+        Warning
+      </button>
+    </mat-card> -->
+  </main>
+  
+  <footer class="docs-footer mt-1" >
+     <router-outlet name="footer"></router-outlet>
+   <!-- <app-footer-bar></app-footer-bar> -->
+ </footer>

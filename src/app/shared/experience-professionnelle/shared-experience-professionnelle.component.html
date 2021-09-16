@@ -1,0 +1,69 @@
+
+<form [formGroup]="form_step_one">
+  <div class="example-box" role="listitem" color="primary" formArrayName="listExpProfessionnelleGroup"
+  *ngFor="let x of listExpProfessionnelleGroup.controls; let i = index">
+  <ng-container class="row" [formGroupName]="i">
+  
+      <div class="form-row form-group exp-pro ml-1 mr-1">
+          <div class="col-md-12 text-right"><mat-icon (click)="removeExpPo(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+          <mat-form-field class="example-full-width col-md-6" appearance="outline"> 
+              <mat-label>Choisir la date de début</mat-label>
+              <input matInput name="exp_pro_deb" class="text-bold"  [max]="maxDate"  (click)="bindExpProDebPicker.open()"  formControlName="exp_pro_deb"  [matDatepicker]="bindExpProDebPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindExpProDebPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindExpProDebPicker 
+                      startView="multi-year"
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+      
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width col-md-6" appearance="outline"> 
+                <mat-label>Choisir la date de fin</mat-label>
+              <input matInput name="exp_pro_fin" class="text-bold"   [max]="maxDate"  (click)="bindExpProFinPicker.open()"  formControlName="exp_pro_fin"  [matDatepicker]="bindExpProFinPicker">
+              <mat-datepicker-toggle matSuffix [for]="bindExpProFinPicker"></mat-datepicker-toggle>
+              <mat-datepicker #bindExpProFinPicker 
+                      startView="multi-year" 
+                      panelClass="example-month-picker" disabled="false"></mat-datepicker>
+       
+            </mat-form-field>
+              
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                <mat-label>Nom société</mat-label>
+              <input type="text" matInput id="nom_soc" name="nom_soc" formControlName="nom_soc" >
+              
+             
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+              <mat-label>Nom de la ville</mat-label>
+              <input type="text"  matInput
+              name="where" formControlName="where"  [matAutocomplete]="bindWhereAutoComplete">
+              <mat-autocomplete #bindWhereAutoComplete="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions[i] | async" [value]="option">
+                {{option}}
+              </mat-option>
+              </mat-autocomplete>
+              <mat-icon matSuffix>location_on</mat-icon>
+      
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Poste</mat-label>
+              <input type="text" matInput id="poste" name="poste" formControlName="poste" >
+              
+             
+            </mat-form-field>
+  
+            <mat-form-field appearance="outline" class="example-full-width col-md-12">
+                <mat-label>Description</mat-label>
+              <textarea rows="5" matInput id="description" name="description" formControlName="description"
+                  >
+                  </textarea>
+           
+          </mat-form-field>
+          <div class="col-md-12 text-right"><mat-icon (click)="removeExpPo(i)" matTooltip="Retirer cet élément" color="warn" style="cursor: pointer;">close</mat-icon></div>
+  
+      </div>
+  </ng-container>
+  </div>
+
+</form>

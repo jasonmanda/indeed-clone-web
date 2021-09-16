@@ -1,0 +1,60 @@
+@import '../../../property.scss';
+ 
+table{
+    width: 100%;
+    height: auto;
+}
+.example-container {
+    height: auto;
+    overflow: auto;
+  }
+  .col-md-12.text-center button{
+        margin-right: 2px;
+  }
+  .mat-row.ng-star-inserted{
+
+  font-size:24px;
+}
+
+  .mat-row.ng-star-inserted:hover{
+
+    background: rgba(242,245,245,0.8);
+    color: #202124;
+    cursor: pointer;
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+}
+.mat-row.ng-star-inserted:hover{
+
+    background: rgba(242,245,245,0.8);
+    color: #202124;
+    cursor: pointer;
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+}
+.mat-row.ng-star-inserted 
+.mat-cell.cdk-column-action.mat-column-action.ng-star-inserted button{
+
+   margin-right: 2px;
+}
+ 
+
+main{
+    background:$main-lg-in-color;
+}
+ 
+footer{
+    color:$text-black;
+    font-size: $font-size;
+    font-weight: normal; 
+}
+@media screen and (min-width:768px){
+    main{
+        padding-top:5%;
+    }
+}
+ 
+@media screen and (max-width:767px){
+    main {
+        padding-top: 13%;
+    }
+ 
+}

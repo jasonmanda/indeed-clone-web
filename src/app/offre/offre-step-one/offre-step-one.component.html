@@ -1,0 +1,48 @@
+<form [formGroup]="form_step_one">
+
+    <div class="row mb-2">
+        <div class="col-12 mt-3 text-left text-bold">
+          <span style="font-size: 29px;"><mat-icon>edit</mat-icon> A propos du poste</span>
+        </div>
+ 
+       </div>
+    
+      
+      <div class="form-row form-group justify-content-center">
+        <mat-checkbox class="text-left" matTooltip="Êtes-vous un employeur ou un cabinet de recrutement agissant pour son client?" color="primary" id="cab_recrutement" name="cab_recrutement" formControlName="cab_recrutement">Cabinet de recrutement </mat-checkbox>  
+      </div>
+
+    <div class="form-row form-group" *ngIf="cab_recrutement!=null && cab_recrutement!=undefined">
+        <mat-form-field appearance="outline" class="example-full-width col-md-12" *ngIf="cab_recrutement.value">
+          <mat-label>Nom de l'entreprise pour cette offre d'emploi</mat-label>
+            <input type="text" matInput id="nom_ent" name="nom_ent" formControlName="nom_ent">
+          
+          </mat-form-field>
+      
+      </div> 
+      <div class="form-row form-group">
+        <mat-form-field appearance="outline" class="example-full-width col-md-12">
+          <mat-label>Poste</mat-label>
+            <input type="text" matInput id="poste" name="poste" formControlName="poste" >
+            
+           
+          </mat-form-field>
+      </div>
+
+        <div class="form-row form-group">
+          <mat-form-field appearance="outline" class="example-full-width col-md-12">
+            <mat-label>Nom de la ville</mat-label>
+            <input type="text"  matInput
+            name="where" formControlName="where"  [matAutocomplete]="bindWhereAutoComplete">
+            <mat-autocomplete #bindWhereAutoComplete="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+            </mat-autocomplete>
+            <mat-icon matSuffix>location_on</mat-icon>
+        
+        </mat-form-field>
+        </div>
+     
+
+</form>

@@ -1,0 +1,96 @@
+<form >
+  <fieldset class="mb-2">
+    <div class="form-group form-row justify-content-center">
+      <span class="inscription-card-header">Compte</span>
+    </div>
+    
+    <div class="form-row form-group">
+       <label class="pl-2 pr-2 col-12">Email: <span><b>{{user.email}}</b></span> </label>
+       <label class="pl-2 pr-2 col-12">Password: <span><b>*******</b></span> </label>
+   
+    </div>
+ 
+
+</fieldset>
+
+<fieldset class="mb-2">
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Type compte</span>
+  </div>
+   
+  <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Compte: <span><b>{{account.type_account=='entreprise'?'Entreprise':'Professionnel'}}</b></span> </label>
+    <label class="pl-2 pr-2 col-12">Nom entreprise: <span><b>{{account.nom_ent}}</b></span> </label>
+     <label class="pl-2 pr-2 col-12">Cabinet de recrutement: <span><b>{{account.cab_recrutement?'VRAI':'FAUX'}}</b></span> </label>
+     <label class="pl-2 pr-2 text-center col-12">
+      <img matTooltip="Logo entreprise" style="width: 160px;height: 160px;" [src]="kronos_logo" alt="..."    class="img-thumbnail">
+     </label>
+  </div>
+
+
+</fieldset>
+
+  <fieldset class="mb-2">
+    <div class="form-group form-row justify-content-center">
+      <span class="inscription-card-header">Information entreprise</span>
+    </div>
+    
+    <div class="form-row form-group">
+      <label class="pl-2 pr-2 col-12">Nom personne en charge: <span><b>{{info.personne.nom_personne}}</b></span> </label>
+      <label class="pl-2 pr-2 col-12">Prénom personne en charge: <span><b>{{info.personne.prenom_personne}}</b></span> </label>
+      <label class="pl-2 pr-2 col-12">Domaine de l'entreprise: <span><b>{{info.domaine==null||info.domaine==undefined?"Inconnue":info.domaine}}</b></span> </label>
+      <label class="pl-2 pr-2 col-12">Nombre employé: <span><b>{{info.taille==null||info.taille==undefined?"Inconnue":info.taille}}</b></span> </label>
+      <label class="pl-2 pr-2 col-12">Capital: <span><b>{{info.capital| number:'':'fr-FR'}} XOF</b></span> </label>
+      <label class="pl-2 pr-2 col-12">Description: <p><b>{{info.description}}</b></p> </label>
+     
+    
+    </div>
+ 
+  
+</fieldset>
+
+<fieldset class="mb-2">
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Localiser l'entreprise</span>
+  </div>
+
+  <div class="form-group form-row justify-content-center">
+    <label class="pl-2 pr-2 col-12">Ville: <span><b>{{info.ville.nom_ville}}</b></span> </label>
+ 
+</div>
+</fieldset>
+
+<fieldset class="mb-2">
+
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Contact de  l'entreprise</span>
+  </div>
+ 
+  <div class="form-row form-group">
+    <label class="pl-2 pr-2 col-12">Numero: <span><b>{{contact.numero}}</b></span> </label>
+    <label class="pl-2 pr-2 col-12">Email: <span><b>{{contact.mail}}</b></span> </label>
+    <label class="pl-2 pr-2 col-12">Site web: <span><b>{{contact.website}}</b></span> </label>
+    <label class="pl-2 pr-2 col-12">Facebook: <span><b>{{contact.facebook}}</b></span> </label>
+    <label class="pl-2 pr-2 col-12">Linkedin: <span><b>{{contact.linkedin}}</b></span> </label>
+    <label class="pl-2 pr-2 col-12">Twitter: <span><b>{{contact.twitter}}</b></span> </label>
+ 
+  </div>
+   
+ 
+ 
+
+</fieldset>
+<div class="form-group form-row text-center">
+  <div class="col-6">
+    <button (click)="onSubmit('back')" class="col-md-12" mat-raised-button mat-button color="primary"><mat-icon>arrow_back_ios</mat-icon> Retour</button>
+
+  </div>
+  <div class="col-6">
+    <button (click)="onSubmit('finish')" [disabled]="hold" class="col-md-12" mat-raised-button mat-button color="primary">Terminé<mat-icon>add</mat-icon></button>
+
+  </div>
+ 
+
+
+</div>
+</form>

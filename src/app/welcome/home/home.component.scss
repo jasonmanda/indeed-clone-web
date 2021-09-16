@@ -1,0 +1,47 @@
+@import '../../../property.scss';
+
+
+div>div>div.second-sub{
+    background-color: $main-sc-color;
+    height: $fsp-220;
+}
+div>div>div.third-sub{
+    // background-color: $main-sc-color;
+    height: $fsp-112;
+}
+div>div>div.four-sub{
+    // background-color: $main-sc-color;
+    height: $fsp-81;
+}
+div>div>div.five-sub{
+    background-color: $main-sc-color;
+    height: $fsp-121;
+}
+div>div>div>span.five-sub-span{
+    display: $flex;
+
+}
+div>div>div>span.five-sub-span.first{
+    font-size: $font-size-1;
+    font-weight:$fw700;
+    line-height:$line-height;
+    letter-spacing:$letter-spacing;
+
+}
+div>div>div>span.five-sub-span.second a:hover{
+    text-decoration: none;
+
+}
+
+div.container>div.row>div>div.row>div> a, span{
+    font-size: $fsp-16;
+   }
+   div.container>div.row>div>div.row>div> a{
+    color:$connexion-color;
+    letter-spacing: 0;
+    font-weight: $fw700;
+    line-height: $line-height-1;
+   }
+   div.container>div.row>div>div.row>div span{
+    color:$text-black;
+   }

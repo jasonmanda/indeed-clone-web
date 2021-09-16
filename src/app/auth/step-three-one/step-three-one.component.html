@@ -1,0 +1,130 @@
+<form [formGroup]="form">
+  <fieldset class="mb-2">
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Information entreprise</span>
+  </div>
+  
+  <div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Nom de la personne en charge</mat-label>
+        <input type="text" matInput id="nom_pic" name="nom_pic" formControlName="nom_pic" >
+      
+      </mat-form-field>
+  
+  </div>
+
+  <div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Prénom de la personne en charge</mat-label>
+        <input type="text" matInput id="prenom_pic" name="prenom_pic" formControlName="prenom_pic">
+       
+      </mat-form-field>
+  </div>
+  
+  <div class="form-row form-group">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Domaine de l'entreprise</mat-label>
+      <mat-select name="domaine" formControlName="domaine"
+          
+          [value]="domaine.value">
+          <mat-option *ngFor="let option of domaines"
+              [value]="option.key">
+              {{option.value}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+  </div>
+
+  <div class="form-row form-group">
+  <mat-form-field appearance="outline" class="example-full-width col-md-12">
+    <mat-label>Taille entreprise</mat-label>
+    <mat-select name="taille" formControlName="taille"
+        
+        [value]="taille.value">
+        <mat-option  value="null">Combien d'employés?</mat-option>
+        <mat-option *ngFor="let option of size"
+            [value]="option.key">
+            {{option.value}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+</div>
+
+<div class="form-row form-group">
+  <mat-form-field appearance="outline" class="example-full-width col-md-12">
+    <mat-label>Le capital de l'entreprise</mat-label>
+      <input type="number" matInput id="capital" name="capital" formControlName="capital" >
+   
+    </mat-form-field>
+
+</div>
+
+<div class="form-row form-group">
+  <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Description</mat-label>
+      <textarea  rows="5" matInput id="description" name="description" formControlName="description">
+          </textarea>
+    
+    </mat-form-field>
+
+</div>
+
+ 
+ 
+</fieldset>
+
+<fieldset class="mb-2">
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Localiser l'entreprise</span>
+  </div>
+
+  <div class="form-group form-row justify-content-center">
+    <mat-form-field appearance="outline" class="example-full-width col-md-12">
+      <mat-label>Nom de la ville</mat-label>
+        <input type="text"  matInput
+        name="where" formControlName="where"  [matAutocomplete]="bindWhereAutoComplete">
+        <mat-autocomplete #bindWhereAutoComplete="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+        </mat-autocomplete>
+        <mat-icon matSuffix>location_on</mat-icon>
+
+    </mat-form-field>
+</div>
+</fieldset>
+<fieldset class="mb-2">
+  <div class="form-group form-row justify-content-center">
+    <span class="inscription-card-header">Contact de  l'entreprise</span>
+  </div>
+
+<app-shared-contact
+  [form_step_one]="form"
+  [numero]="numero"
+  [mail]="mail"
+  [website]="website"
+  [facebook]="facebook"
+  [linkedin]="linkedin"
+  [twitter]="twitter"
+></app-shared-contact>
+
+</fieldset>
+<div class="form-group form-row text-center" *ngIf="data_type=='add'">
+  <div class="col-6">
+    <button (click)="onSubmit(form.value,'back')" class="col-md-12" [disabled]="!form.valid" mat-raised-button mat-button color="primary"><mat-icon>arrow_back_ios</mat-icon> Retour</button>
+
+  </div>
+  <div class="col-6">
+    <button (click)="onSubmit(form.value,'next')" class="col-md-12" [disabled]="!form.valid || hold" mat-raised-button mat-button color="primary">Suivant<mat-icon>arrow_forward_ios</mat-icon></button>
+
+  </div>
+
+
+
+</div>
+
+<div class="form-group form-row justify-content-center" *ngIf="data_type=='edit'">
+  <button (click)="onSubmit(form.value,'update')"   [disabled]="!form.valid || hold" mat-raised-button mat-button color="primary">Modifier<mat-icon>edit</mat-icon></button>
+</div>
+
+</form>
